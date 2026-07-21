@@ -166,9 +166,14 @@
               class="ai-product-showcase-image-{{ ai_gen_id }}"
             >
           {% else %}
-            <div class="ai-product-showcase-image-placeholder-{{ ai_gen_id }}">
-              {{ 'product-1' | placeholder_svg_tag }}
-            </div>
+            <img
+              src="{{ 'flowlines-projector-studio.png' | asset_url }}"
+              alt="Flowlines projector in a sunlit art studio"
+              loading="lazy"
+              width="1440"
+              height="1080"
+              class="ai-product-showcase-image-{{ ai_gen_id }}"
+            >
           {% endif %}
         </div>
         {% if block.settings.hardware_title != blank %}
@@ -194,9 +199,14 @@
               class="ai-product-showcase-image-{{ ai_gen_id }}"
             >
           {% else %}
-            <div class="ai-product-showcase-image-placeholder-{{ ai_gen_id }}">
-              {{ 'product-1' | placeholder_svg_tag }}
-            </div>
+            <img
+              src="{{ 'flowlines-guided-drawing-app.png' | asset_url }}"
+              alt="Flowlines guided drawing app beside a watercolor artwork"
+              loading="lazy"
+              width="1440"
+              height="1080"
+              class="ai-product-showcase-image-{{ ai_gen_id }}"
+            >
           {% endif %}
         </div>
         {% if block.settings.software_title != blank %}
