@@ -1,0 +1,404 @@
+{% doc %}
+  @prompt
+    我要加一个section在Hero后面，来展示实际的产品形态，有软件有硬件
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-showcase-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: 60px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-product-showcase-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-product-showcase-header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .ai-product-showcase-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+
+  .ai-product-showcase-subtitle-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subtitle_size }}px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.8;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .ai-product-showcase-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .ai-product-showcase-item-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-product-showcase-item-{{ ai_gen_id }}:hover {
+    transform: translateY(-5px);
+  }
+
+  .ai-product-showcase-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-product-showcase-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-product-showcase-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-product-showcase-image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-product-showcase-item-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.item_title_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 16px;
+    font-weight: 600;
+  }
+
+  .ai-product-showcase-item-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_size }}px;
+    color: {{ block.settings.text_color }};
+    opacity: 0.75;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-product-showcase-badge-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: {{ block.settings.badge_background }};
+    color: {{ block.settings.badge_text_color }};
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-showcase-{{ ai_gen_id }} {
+      padding: 40px 16px;
+    }
+
+    .ai-product-showcase-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .ai-product-showcase-item-{{ ai_gen_id }} {
+      padding: 30px 20px;
+    }
+
+    .ai-product-showcase-title-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.title_size }}px * 0.7);
+    }
+
+    .ai-product-showcase-subtitle-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.subtitle_size }}px * 0.9);
+    }
+  }
+{% endstyle %}
+
+<product-showcase-{{ ai_gen_id }} class="ai-product-showcase-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-product-showcase-container-{{ ai_gen_id }}">
+    {% if block.settings.title != blank or block.settings.subtitle != blank %}
+      <div class="ai-product-showcase-header-{{ ai_gen_id }}">
+        {% if block.settings.title != blank %}
+          <h2 class="ai-product-showcase-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+        {% endif %}
+        {% if block.settings.subtitle != blank %}
+          <div class="ai-product-showcase-subtitle-{{ ai_gen_id }}">{{ block.settings.subtitle }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-product-showcase-grid-{{ ai_gen_id }}">
+      <div class="ai-product-showcase-item-{{ ai_gen_id }}">
+        {% if block.settings.hardware_badge != blank %}
+          <div class="ai-product-showcase-badge-{{ ai_gen_id }}">{{ block.settings.hardware_badge }}</div>
+        {% endif %}
+        <div class="ai-product-showcase-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.hardware_image %}
+            <img
+              src="{{ block.settings.hardware_image | image_url: width: 800 }}"
+              alt="{{ block.settings.hardware_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.hardware_image.width }}"
+              height="{{ block.settings.hardware_image.height }}"
+              class="ai-product-showcase-image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-product-showcase-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-1' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        {% if block.settings.hardware_title != blank %}
+          <h3 class="ai-product-showcase-item-title-{{ ai_gen_id }}">{{ block.settings.hardware_title }}</h3>
+        {% endif %}
+        {% if block.settings.hardware_description != blank %}
+          <div class="ai-product-showcase-item-description-{{ ai_gen_id }}">{{ block.settings.hardware_description }}</div>
+        {% endif %}
+      </div>
+
+      <div class="ai-product-showcase-item-{{ ai_gen_id }}">
+        {% if block.settings.software_badge != blank %}
+          <div class="ai-product-showcase-badge-{{ ai_gen_id }}">{{ block.settings.software_badge }}</div>
+        {% endif %}
+        <div class="ai-product-showcase-image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.software_image %}
+            <img
+              src="{{ block.settings.software_image | image_url: width: 800 }}"
+              alt="{{ block.settings.software_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.software_image.width }}"
+              height="{{ block.settings.software_image.height }}"
+              class="ai-product-showcase-image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-product-showcase-image-placeholder-{{ ai_gen_id }}">
+              {{ 'product-1' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+        {% if block.settings.software_title != blank %}
+          <h3 class="ai-product-showcase-item-title-{{ ai_gen_id }}">{{ block.settings.software_title }}</h3>
+        {% endif %}
+        {% if block.settings.software_description != blank %}
+          <div class="ai-product-showcase-item-description-{{ ai_gen_id }}">{{ block.settings.software_description }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</product-showcase-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductShowcase{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.style.display = 'block';
+      }
+    }
+
+    customElements.define('product-showcase-{{ ai_gen_id }}', ProductShowcase{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product showcase",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "What You Get"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Complete hardware and software solution for your creative journey"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 20,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle size",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Hardware"
+    },
+    {
+      "type": "image_picker",
+      "id": "hardware_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "hardware_badge",
+      "label": "Badge text",
+      "default": "Hardware"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "hardware_title",
+      "label": "Title",
+      "default": "Smart Drawing Projector"
+    },
+    {
+      "type": "richtext",
+      "id": "hardware_description",
+      "label": "Description",
+      "default": "<p>AI-powered projector that transforms any photo into a traceable guide on your canvas</p>"
+    },
+    {
+      "type": "header",
+      "content": "Software"
+    },
+    {
+      "type": "image_picker",
+      "id": "software_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "software_badge",
+      "label": "Badge text",
+      "default": "Software"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "software_title",
+      "label": "Title",
+      "default": "Guided Learning App"
+    },
+    {
+      "type": "richtext",
+      "id": "software_description",
+      "label": "Description",
+      "default": "<p>Step-by-step tutorials and smart features that guide you from beginner to artist</p>"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Badge background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "item_title_size",
+      "label": "Item title size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product showcase"
+    }
+  ]
+}
+{% endschema %}

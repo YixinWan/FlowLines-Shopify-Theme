@@ -1,0 +1,491 @@
+{% doc %}
+  @prompt
+    Create a Shopify landing page section with four feature highlight columns for the FlowLines landing page.
+    
+    Section layout:
+    - Full-width section with a clean white or very light warm background.
+    - Add generous vertical padding, around 50px to 70px.
+    - Center the content with a max width around 1200px.
+    - Display 4 equal columns in one horizontal row on desktop.
+    - On mobile, stack the columns vertically with comfortable spacing.
+    - Add subtle vertical divider lines between each column on desktop.
+    - Keep the overall style minimal, premium, clean, friendly, and easy to scan.
+    
+    Content structure for each column:
+    - A simple outline icon on the left or top-left.
+    - To the right of the icon, place a bold feature heading.
+    - Below the heading, add a short descriptive paragraph.
+    - Keep text clean and concise.
+    - The layout should feel airy and balanced, with plenty of whitespace.
+    
+    Column 1:
+    Icon: paint palette outline
+    Heading: "Real painting, not just AI images"
+    Text: "Create beautiful artwork on paper with real brushes, real paints, and real texture."
+    
+    Column 2:
+    Icon: graduation cap outline
+    Heading: "Beginner-friendly guidance"
+    Text: "Step-by-step projections make painting simple, fun, and stress-free."
+    
+    Column 3:
+    Icon: box / package outline
+    Heading: "Hardware + app + materials"
+    Text: "Everything works together out of the box so you can start right away."
+    
+    Column 4:
+    Icon: heart outline
+    Heading: "Fun, relaxing, and shareable"
+    Text: "Unwind, express yourself, and share your creations with the people you love."
+    
+    Design details:
+    - Use a clean modern layout with thin outline icons.
+    - Use dark navy for headings.
+    - Use medium-dark gray for body text.
+    - Use orange for the palette and box icons.
+    - Use soft blue for the graduation cap and heart icons.
+    - Divider lines should be very light gray.
+    - Keep typography readable and slightly premium, suitable for a creative tech product.
+    - Do not add a large section title above this row.
+    - This section should function as a quick scan of the product’s core benefits.
+    
+    Approximate colors:
+    - Background: #FFFFFF
+    - Heading color: #0B2341
+    - Body text color: #2F3A4A
+    - Orange accent: #F97316
+    - Soft blue accent: #8AA4D6
+    - Divider line: #EAEAEA
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-feature-highlights-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_top }}px 20px {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-feature-highlights-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-feature-highlights-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .ai-feature-highlights-column-{{ ai_gen_id }} {
+    padding: 0 {{ block.settings.column_padding }}px;
+    position: relative;
+  }
+
+  .ai-feature-highlights-column-{{ ai_gen_id }}:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: {{ block.settings.divider_color }};
+  }
+
+  .ai-feature-highlights-content-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: {{ block.settings.icon_text_gap }}px;
+  }
+
+  .ai-feature-highlights-icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-feature-highlights-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: {{ block.settings.icon_stroke_width }};
+  }
+
+  .ai-feature-highlights-text-{{ ai_gen_id }} {
+    flex: 1;
+  }
+
+  .ai-feature-highlights-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: {{ block.settings.heading_weight }};
+    line-height: 1.3;
+    margin: 0 0 {{ block.settings.heading_margin }}px 0;
+  }
+
+  .ai-feature-highlights-description-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-feature-highlights-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_gap }}px;
+    }
+
+    .ai-feature-highlights-column-{{ ai_gen_id }}:not(:last-child)::after {
+      display: none;
+    }
+
+    .ai-feature-highlights-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_padding_top }}px 20px {{ block.settings.mobile_padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-feature-highlights-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-feature-highlights-container-{{ ai_gen_id }}">
+    <div class="ai-feature-highlights-grid-{{ ai_gen_id }}">
+      <div class="ai-feature-highlights-column-{{ ai_gen_id }}">
+        <div class="ai-feature-highlights-content-{{ ai_gen_id }}">
+          <div class="ai-feature-highlights-icon-{{ ai_gen_id }}" style="color: {{ block.settings.icon_color_1 }};">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+            </svg>
+          </div>
+          <div class="ai-feature-highlights-text-{{ ai_gen_id }}">
+            <h3 class="ai-feature-highlights-heading-{{ ai_gen_id }}">{{ block.settings.heading_1 }}</h3>
+            <p class="ai-feature-highlights-description-{{ ai_gen_id }}">{{ block.settings.description_1 }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-feature-highlights-column-{{ ai_gen_id }}">
+        <div class="ai-feature-highlights-content-{{ ai_gen_id }}">
+          <div class="ai-feature-highlights-icon-{{ ai_gen_id }}" style="color: {{ block.settings.icon_color_2 }};">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+            </svg>
+          </div>
+          <div class="ai-feature-highlights-text-{{ ai_gen_id }}">
+            <h3 class="ai-feature-highlights-heading-{{ ai_gen_id }}">{{ block.settings.heading_2 }}</h3>
+            <p class="ai-feature-highlights-description-{{ ai_gen_id }}">{{ block.settings.description_2 }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-feature-highlights-column-{{ ai_gen_id }}">
+        <div class="ai-feature-highlights-content-{{ ai_gen_id }}">
+          <div class="ai-feature-highlights-icon-{{ ai_gen_id }}" style="color: {{ block.settings.icon_color_3 }};">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+            </svg>
+          </div>
+          <div class="ai-feature-highlights-text-{{ ai_gen_id }}">
+            <h3 class="ai-feature-highlights-heading-{{ ai_gen_id }}">{{ block.settings.heading_3 }}</h3>
+            <p class="ai-feature-highlights-description-{{ ai_gen_id }}">{{ block.settings.description_3 }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-feature-highlights-column-{{ ai_gen_id }}">
+        <div class="ai-feature-highlights-content-{{ ai_gen_id }}">
+          <div class="ai-feature-highlights-icon-{{ ai_gen_id }}" style="color: {{ block.settings.icon_color_4 }};">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </div>
+          <div class="ai-feature-highlights-text-{{ ai_gen_id }}">
+            <h3 class="ai-feature-highlights-heading-{{ ai_gen_id }}">{{ block.settings.heading_4 }}</h3>
+            <p class="ai-feature-highlights-description-{{ ai_gen_id }}">{{ block.settings.description_4 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Feature highlights",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "column_padding",
+      "label": "Column padding",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile gap",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#0B2341"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#2F3A4A"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider",
+      "default": "#EAEAEA"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "min": 400,
+      "max": 700,
+      "step": 100,
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "heading_margin",
+      "label": "Heading margin",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 20,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "icon_stroke_width",
+      "label": "Icon stroke width",
+      "min": 1,
+      "max": 2,
+      "step": 0.5,
+      "default": 1.5
+    },
+    {
+      "type": "range",
+      "id": "icon_text_gap",
+      "label": "Icon text gap",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "icon_color_1",
+      "label": "Icon 1 color",
+      "default": "#F97316"
+    },
+    {
+      "type": "color",
+      "id": "icon_color_2",
+      "label": "Icon 2 color",
+      "default": "#8AA4D6"
+    },
+    {
+      "type": "color",
+      "id": "icon_color_3",
+      "label": "Icon 3 color",
+      "default": "#F97316"
+    },
+    {
+      "type": "color",
+      "id": "icon_color_4",
+      "label": "Icon 4 color",
+      "default": "#8AA4D6"
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Heading",
+      "default": "Real painting, not just AI images"
+    },
+    {
+      "type": "textarea",
+      "id": "description_1",
+      "label": "Description",
+      "default": "Create beautiful artwork on paper with real brushes, real paints, and real texture."
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Heading",
+      "default": "Beginner-friendly guidance"
+    },
+    {
+      "type": "textarea",
+      "id": "description_2",
+      "label": "Description",
+      "default": "Step-by-step projections make painting simple, fun, and stress-free."
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "heading_3",
+      "label": "Heading",
+      "default": "Hardware + app + materials"
+    },
+    {
+      "type": "textarea",
+      "id": "description_3",
+      "label": "Description",
+      "default": "Everything works together out of the box so you can start right away."
+    },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "text",
+      "id": "heading_4",
+      "label": "Heading",
+      "default": "Fun, relaxing, and shareable"
+    },
+    {
+      "type": "textarea",
+      "id": "description_4",
+      "label": "Description",
+      "default": "Unwind, express yourself, and share your creations with the people you love."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature highlights"
+    }
+  ]
+}
+{% endschema %}

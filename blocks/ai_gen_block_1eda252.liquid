@@ -1,0 +1,688 @@
+{% doc %}
+  @prompt
+    加一个FAQ section，参考以下几类问题：
+    Do I need any drawing experience?
+    Does FlowLines work on real paper?
+    What materials do I need?
+    Can kids use it?
+    Is this an AI image generator?
+    When will FlowLines be available?
+    Can I join as an early tester?
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-faq-container-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-faq-inner-{{ ai_gen_id }} {
+    max-width: {{ block.settings.content_max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-faq-header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.heading_alignment }};
+    margin-bottom: {{ block.settings.heading_spacing }}px;
+  }
+
+  .ai-faq-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0;
+  }
+
+  .ai-faq-subheading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subheading_size }}px;
+    color: {{ block.settings.subheading_color }};
+    margin-top: 12px;
+  }
+
+  .ai-faq-list-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.item_spacing }}px;
+  }
+
+  .ai-faq-item-{{ ai_gen_id }} {
+    border: {{ block.settings.item_border_width }}px solid {{ block.settings.item_border_color }};
+    border-radius: {{ block.settings.item_border_radius }}px;
+    background-color: {{ block.settings.item_background_color }};
+    overflow: hidden;
+  }
+
+  .ai-faq-question-button-{{ ai_gen_id }} {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {{ block.settings.item_padding }}px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: {{ block.settings.question_color }};
+    font-size: {{ block.settings.question_size }}px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .ai-faq-question-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.item_hover_color }};
+  }
+
+  .ai-faq-question-text-{{ ai_gen_id }} {
+    flex: 1;
+    padding-right: 16px;
+  }
+
+  .ai-faq-icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-faq-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    stroke: {{ block.settings.icon_color }};
+  }
+
+  .ai-faq-item-{{ ai_gen_id }}.active .ai-faq-icon-{{ ai_gen_id }} {
+    transform: rotate(180deg);
+  }
+
+  .ai-faq-answer-{{ ai_gen_id }} {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .ai-faq-answer-content-{{ ai_gen_id }} {
+    padding: 0 {{ block.settings.item_padding }}px {{ block.settings.item_padding }}px;
+    color: {{ block.settings.answer_color }};
+    font-size: {{ block.settings.answer_size }}px;
+    line-height: 1.6;
+  }
+
+  .ai-faq-item-{{ ai_gen_id }}.active .ai-faq-answer-{{ ai_gen_id }} {
+    max-height: 500px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-faq-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.8);
+    }
+
+    .ai-faq-subheading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.subheading_size }}px * 0.9);
+    }
+
+    .ai-faq-question-button-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.question_size }}px * 0.95);
+    }
+
+    .ai-faq-answer-content-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.answer_size }}px * 0.95);
+    }
+  }
+{% endstyle %}
+
+<faq-accordion-{{ ai_gen_id }} class="ai-faq-container-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-faq-inner-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank or block.settings.subheading != blank %}
+      <div class="ai-faq-header-{{ ai_gen_id }}">
+        {% if block.settings.heading != blank %}
+          <h2 class="ai-faq-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+        {% endif %}
+        {% if block.settings.subheading != blank %}
+          <div class="ai-faq-subheading-{{ ai_gen_id }}">{{ block.settings.subheading }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-faq-list-{{ ai_gen_id }}">
+      {% if block.settings.faq_1_question != blank %}
+        <div class="ai-faq-item-{{ ai_gen_id }}" data-faq-item>
+          <button
+            class="ai-faq-question-button-{{ ai_gen_id }}"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="ai-faq-question-text-{{ ai_gen_id }}">{{ block.settings.faq_1_question }}</span>
+            <span class="ai-faq-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-faq-answer-{{ ai_gen_id }}">
+            <div class="ai-faq-answer-content-{{ ai_gen_id }}">
+              {{ block.settings.faq_1_answer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.faq_2_question != blank %}
+        <div class="ai-faq-item-{{ ai_gen_id }}" data-faq-item>
+          <button
+            class="ai-faq-question-button-{{ ai_gen_id }}"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="ai-faq-question-text-{{ ai_gen_id }}">{{ block.settings.faq_2_question }}</span>
+            <span class="ai-faq-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-faq-answer-{{ ai_gen_id }}">
+            <div class="ai-faq-answer-content-{{ ai_gen_id }}">
+              {{ block.settings.faq_2_answer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.faq_3_question != blank %}
+        <div class="ai-faq-item-{{ ai_gen_id }}" data-faq-item>
+          <button
+            class="ai-faq-question-button-{{ ai_gen_id }}"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="ai-faq-question-text-{{ ai_gen_id }}">{{ block.settings.faq_3_question }}</span>
+            <span class="ai-faq-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-faq-answer-{{ ai_gen_id }}">
+            <div class="ai-faq-answer-content-{{ ai_gen_id }}">
+              {{ block.settings.faq_3_answer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.faq_4_question != blank %}
+        <div class="ai-faq-item-{{ ai_gen_id }}" data-faq-item>
+          <button
+            class="ai-faq-question-button-{{ ai_gen_id }}"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="ai-faq-question-text-{{ ai_gen_id }}">{{ block.settings.faq_4_question }}</span>
+            <span class="ai-faq-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-faq-answer-{{ ai_gen_id }}">
+            <div class="ai-faq-answer-content-{{ ai_gen_id }}">
+              {{ block.settings.faq_4_answer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.faq_5_question != blank %}
+        <div class="ai-faq-item-{{ ai_gen_id }}" data-faq-item>
+          <button
+            class="ai-faq-question-button-{{ ai_gen_id }}"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="ai-faq-question-text-{{ ai_gen_id }}">{{ block.settings.faq_5_question }}</span>
+            <span class="ai-faq-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-faq-answer-{{ ai_gen_id }}">
+            <div class="ai-faq-answer-content-{{ ai_gen_id }}">
+              {{ block.settings.faq_5_answer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.faq_6_question != blank %}
+        <div class="ai-faq-item-{{ ai_gen_id }}" data-faq-item>
+          <button
+            class="ai-faq-question-button-{{ ai_gen_id }}"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="ai-faq-question-text-{{ ai_gen_id }}">{{ block.settings.faq_6_question }}</span>
+            <span class="ai-faq-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-faq-answer-{{ ai_gen_id }}">
+            <div class="ai-faq-answer-content-{{ ai_gen_id }}">
+              {{ block.settings.faq_6_answer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.faq_7_question != blank %}
+        <div class="ai-faq-item-{{ ai_gen_id }}" data-faq-item>
+          <button
+            class="ai-faq-question-button-{{ ai_gen_id }}"
+            aria-expanded="false"
+            type="button"
+          >
+            <span class="ai-faq-question-text-{{ ai_gen_id }}">{{ block.settings.faq_7_question }}</span>
+            <span class="ai-faq-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="ai-faq-answer-{{ ai_gen_id }}">
+            <div class="ai-faq-answer-content-{{ ai_gen_id }}">
+              {{ block.settings.faq_7_answer }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</faq-accordion-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class FaqAccordion{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.items = this.querySelectorAll('[data-faq-item]');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.items.forEach((item) => {
+          const button = item.querySelector('.ai-faq-question-button-{{ ai_gen_id }}');
+          
+          button.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            if (isActive) {
+              item.classList.remove('active');
+              button.setAttribute('aria-expanded', 'false');
+            } else {
+              item.classList.add('active');
+              button.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      }
+    }
+
+    customElements.define('faq-accordion-{{ ai_gen_id }}', FaqAccordion{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ accordion",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Find answers to common questions about FlowLines"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Heading spacing",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "FAQ 1"
+    },
+    {
+      "type": "text",
+      "id": "faq_1_question",
+      "label": "Question",
+      "default": "Do I need any drawing experience?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_1_answer",
+      "label": "Answer",
+      "default": "<p>No drawing experience is required! FlowLines is designed for everyone, from complete beginners to experienced artists. The projection guides you step-by-step.</p>"
+    },
+    {
+      "type": "header",
+      "content": "FAQ 2"
+    },
+    {
+      "type": "text",
+      "id": "faq_2_question",
+      "label": "Question",
+      "default": "Does FlowLines work on real paper?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_2_answer",
+      "label": "Answer",
+      "default": "<p>Yes! FlowLines projects directly onto any paper surface, canvas, or drawing medium. You create real, physical artwork that you can keep, frame, or gift.</p>"
+    },
+    {
+      "type": "header",
+      "content": "FAQ 3"
+    },
+    {
+      "type": "text",
+      "id": "faq_3_question",
+      "label": "Question",
+      "default": "What materials do I need?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_3_answer",
+      "label": "Answer",
+      "default": "<p>You'll need the FlowLines device, paper or canvas, and your choice of drawing tools (pencils, markers, paints, etc.). We also offer starter bundles with everything included.</p>"
+    },
+    {
+      "type": "header",
+      "content": "FAQ 4"
+    },
+    {
+      "type": "text",
+      "id": "faq_4_question",
+      "label": "Question",
+      "default": "Can kids use it?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_4_answer",
+      "label": "Answer",
+      "default": "<p>Absolutely! FlowLines is perfect for kids aged 6 and up. It's a fun, educational way to develop creativity, fine motor skills, and confidence in art.</p>"
+    },
+    {
+      "type": "header",
+      "content": "FAQ 5"
+    },
+    {
+      "type": "text",
+      "id": "faq_5_question",
+      "label": "Question",
+      "default": "Is this an AI image generator?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_5_answer",
+      "label": "Answer",
+      "default": "<p>No, FlowLines is not an AI generator. It's a smart projection tool that helps you create real, hand-drawn artwork. You're the artist—FlowLines just guides you.</p>"
+    },
+    {
+      "type": "header",
+      "content": "FAQ 6"
+    },
+    {
+      "type": "text",
+      "id": "faq_6_question",
+      "label": "Question",
+      "default": "When will FlowLines be available?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_6_answer",
+      "label": "Answer",
+      "default": "<p>FlowLines is currently in beta testing. We're planning to launch publicly in Q3 2026. Join our waitlist to be notified when pre-orders open!</p>"
+    },
+    {
+      "type": "header",
+      "content": "FAQ 7"
+    },
+    {
+      "type": "text",
+      "id": "faq_7_question",
+      "label": "Question",
+      "default": "Can I join as an early tester?"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_7_answer",
+      "label": "Answer",
+      "default": "<p>Yes! We're accepting applications for our beta testing program. Early testers get exclusive access, special pricing, and the chance to shape the final product. Apply through our contact form.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 600,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "label": "Item spacing",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "item_background_color",
+      "label": "Item background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "item_hover_color",
+      "label": "Item hover",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "item_border_color",
+      "label": "Item border",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "color",
+      "id": "question_color",
+      "label": "Question text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer text",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "question_size",
+      "label": "Question size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "answer_size",
+      "label": "Answer size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Item style"
+    },
+    {
+      "type": "range",
+      "id": "item_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "item_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "label": "Item padding",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ accordion"
+    }
+  ]
+}
+{% endschema %}

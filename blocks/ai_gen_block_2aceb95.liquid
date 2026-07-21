@@ -1,0 +1,549 @@
+{% doc %}
+  @prompt
+    Create a Shopify landing page section with three rounded benefit cards in a horizontal row.
+    
+    Section style:
+    - Full-width section with a very soft warm beige / cream background.
+    - Add generous vertical padding, around 60px top and bottom.
+    - Center the content with a max width around 1200px.
+    - On desktop, show 3 cards in one row with equal width and even spacing.
+    - On mobile, stack the cards vertically.
+    - Each card should have a white background, large rounded corners, subtle soft shadow, and plenty of inner padding.
+    - The overall style should feel clean, warm, premium, beginner-friendly, and suitable for an AI-assisted painting product.
+    
+    Card design:
+    - Each card has a centered circular icon badge at the top.
+    - Use simple line-style icons.
+    - Icon badge colors should alternate between soft peach and soft blue-gray.
+    - Below the icon, add a bold dark navy heading.
+    - Below the heading, add a short supporting sentence in smaller dark gray text.
+    - All content should be center aligned.
+    
+    Card 1:
+    Icon: pencil / sketch icon
+    Heading: "No drawing skills?"
+    Text: "FlowLines handles the sketching so you can paint with confidence."
+    
+    Card 2:
+    Icon: lightbulb icon
+    Heading: "Don’t know what to paint?"
+    Text: "Endless ideas and inspirations tailored to your taste."
+    
+    Card 3:
+    Icon: sprout / growth icon
+    Heading: "Hard to stay motivated?"
+    Text: "Guided steps keep you in flow from the first brush to the last."
+    
+    Use these approximate colors:
+    - Section background: #FFF7EF
+    - Card background: #FFFFFF
+    - Heading color: #0B2341
+    - Body text color: #2F3A4A
+    - Peach icon circle: #FFE3CC
+    - Blue-gray icon circle: #E8EEF8
+    - Accent orange: #F97316
+    
+    Do not add a large section title. The section should only contain the three cards.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-benefit-cards-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.section_background_color }};
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+  }
+
+  .ai-benefit-cards-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-benefit-cards-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: {{ block.settings.card_gap }}px;
+  }
+
+  .ai-benefit-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background_color }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: {{ block.settings.card_padding }}px;
+    box-shadow: {{ block.settings.card_shadow_x }}px {{ block.settings.card_shadow_y }}px {{ block.settings.card_shadow_blur }}px {{ block.settings.card_shadow_color }};
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ai-benefit-icon-badge-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_badge_size }}px;
+    height: {{ block.settings.icon_badge_size }}px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: {{ block.settings.icon_spacing }}px;
+  }
+
+  .ai-benefit-icon-badge-{{ ai_gen_id }}.peach {
+    background-color: {{ block.settings.icon_badge_peach }};
+  }
+
+  .ai-benefit-icon-badge-{{ ai_gen_id }}.blue-gray {
+    background-color: {{ block.settings.icon_badge_blue_gray }};
+  }
+
+  .ai-benefit-icon-badge-{{ ai_gen_id }} svg {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    stroke: {{ block.settings.icon_color }};
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ai-benefit-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: {{ block.settings.heading_weight }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    line-height: 1.3;
+  }
+
+  .ai-benefit-text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-benefit-cards-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.card_gap_mobile }}px;
+    }
+
+    .ai-benefit-cards-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_mobile }}px 0;
+    }
+
+    .ai-benefit-icon-badge-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_badge_size_mobile }}px;
+      height: {{ block.settings.icon_badge_size_mobile }}px;
+    }
+
+    .ai-benefit-icon-badge-{{ ai_gen_id }} svg {
+      width: {{ block.settings.icon_size_mobile }}px;
+      height: {{ block.settings.icon_size_mobile }}px;
+    }
+
+    .ai-benefit-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_mobile }}px;
+    }
+
+    .ai-benefit-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-benefit-cards-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-benefit-cards-container-{{ ai_gen_id }}">
+    <div class="ai-benefit-cards-grid-{{ ai_gen_id }}">
+      <div class="ai-benefit-card-{{ ai_gen_id }}">
+        <div class="ai-benefit-icon-badge-{{ ai_gen_id }} peach">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 19l7 4-2-7.5L22 11l-7.5-1L12 3l-2.5 7L2 11l5.5 4.5L5 23z"/>
+            <line x1="12" y1="3" x2="12" y2="8"/>
+            <line x1="9.5" y1="10" x2="5" y2="11"/>
+            <line x1="14.5" y1="10" x2="19" y2="11"/>
+          </svg>
+        </div>
+        <h3 class="ai-benefit-heading-{{ ai_gen_id }}">{{ block.settings.card_1_heading }}</h3>
+        <p class="ai-benefit-text-{{ ai_gen_id }}">{{ block.settings.card_1_text }}</p>
+      </div>
+
+      <div class="ai-benefit-card-{{ ai_gen_id }}">
+        <div class="ai-benefit-icon-badge-{{ ai_gen_id }} blue-gray">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </div>
+        <h3 class="ai-benefit-heading-{{ ai_gen_id }}">{{ block.settings.card_2_heading }}</h3>
+        <p class="ai-benefit-text-{{ ai_gen_id }}">{{ block.settings.card_2_text }}</p>
+      </div>
+
+      <div class="ai-benefit-card-{{ ai_gen_id }}">
+        <div class="ai-benefit-icon-badge-{{ ai_gen_id }} peach">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8v5"/>
+            <path d="M12 16h.01"/>
+          </svg>
+        </div>
+        <h3 class="ai-benefit-heading-{{ ai_gen_id }}">{{ block.settings.card_3_heading }}</h3>
+        <p class="ai-benefit-text-{{ ai_gen_id }}">{{ block.settings.card_3_text }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Benefit cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Background color",
+      "default": "#FFF7EF"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_mobile",
+      "label": "Mobile padding",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mobile",
+      "label": "Gap on mobile",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Card shadow"
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_x",
+      "label": "Horizontal offset",
+      "min": -10,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_y",
+      "label": "Vertical offset",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_blur",
+      "label": "Blur",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "card_shadow_color",
+      "label": "Shadow color",
+      "default": "rgba(0, 0, 0, 0.08)"
+    },
+    {
+      "type": "header",
+      "content": "Icon badge"
+    },
+    {
+      "type": "range",
+      "id": "icon_badge_size",
+      "label": "Badge size",
+      "min": 40,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "icon_badge_size_mobile",
+      "label": "Badge size on mobile",
+      "min": 40,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mobile",
+      "label": "Icon size on mobile",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "label": "Spacing below icon",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "icon_badge_peach",
+      "label": "Peach badge color",
+      "default": "#FFE3CC"
+    },
+    {
+      "type": "color",
+      "id": "icon_badge_blue_gray",
+      "label": "Blue-gray badge color",
+      "default": "#E8EEF8"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#F97316"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#0B2341"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size on mobile",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "min": 400,
+      "max": 900,
+      "step": 100,
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Spacing below heading",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2F3A4A"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Text size on mobile",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Card 1"
+    },
+    {
+      "type": "text",
+      "id": "card_1_heading",
+      "label": "Heading",
+      "default": "No drawing skills?"
+    },
+    {
+      "type": "textarea",
+      "id": "card_1_text",
+      "label": "Text",
+      "default": "FlowLines handles the sketching so you can paint with confidence."
+    },
+    {
+      "type": "header",
+      "content": "Card 2"
+    },
+    {
+      "type": "text",
+      "id": "card_2_heading",
+      "label": "Heading",
+      "default": "Don't know what to paint?"
+    },
+    {
+      "type": "textarea",
+      "id": "card_2_text",
+      "label": "Text",
+      "default": "Endless ideas and inspirations tailored to your taste."
+    },
+    {
+      "type": "header",
+      "content": "Card 3"
+    },
+    {
+      "type": "text",
+      "id": "card_3_heading",
+      "label": "Heading",
+      "default": "Hard to stay motivated?"
+    },
+    {
+      "type": "textarea",
+      "id": "card_3_text",
+      "label": "Text",
+      "default": "Guided steps keep you in flow from the first brush to the last."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefit cards"
+    }
+  ]
+}
+{% endschema %}

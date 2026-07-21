@@ -1,0 +1,662 @@
+{% doc %}
+  @prompt
+    Create a Shopify landing page section called "Join the FlowLines Waitlist".
+    
+    Important:
+    Do NOT create a fake HTML form.
+    Do NOT create input fields manually.
+    Do NOT use a custom form action.
+    Do NOT use JavaScript-only submission.
+    
+    This section should be designed as a polished visual wrapper for a Shopify Forms app inline form.
+    
+    Please create a full-width waitlist section with a placeholder area where I can insert the Shopify Forms app block / inline form using the Form ID from the Shopify Forms app.
+    
+    Purpose:
+    This section is for collecting emails and early access signups through Shopify Forms app.
+    
+    Product context:
+    FlowLines is an intelligent drawing assistant that helps beginners turn photos, ideas, and stories into real paintings created by hand on paper, step by step.
+    
+    Audience:
+    Beginners, parents, DIY creators, gift buyers, art educators, and art lovers.
+    
+    Layout:
+    - Full-width section with a soft warm cream background.
+    - Center the content with a max width around 760px.
+    - Add generous padding, around 80px top and bottom.
+    - Use a clean card-style container with a white background, rounded corners, subtle border, and soft shadow.
+    - Inside the card, include the heading, subheading, benefit points, and a clear placeholder for the Shopify Forms app inline form.
+    - The placeholder should be visually labeled in the theme editor as: "Insert Shopify Forms app block here".
+    - On mobile, keep everything stacked and easy to read.
+    
+    Content above the form:
+    Heading:
+    Join the FlowLines Waitlist
+    
+    Subheading:
+    Be the first to try FlowLines — a new way for beginners to create real paintings on paper, step by step.
+    
+    Add three short benefit points:
+    - Early access before public launch
+    - Exclusive launch discount
+    - Invitations to tester sessions and product updates
+    
+    Form placeholder:
+    Add a clean embedded form area for the Shopify Forms app inline form.
+    The real form will be inserted using the Shopify Forms app block, not manually coded.
+    
+    Small trust note below the form placeholder:
+    No spam. We’ll only send product updates, early access invitations, and launch offers.
+    
+    Design style:
+    - Warm, clean, premium, beginner-friendly.
+    - Use dark navy headings.
+    - Use soft gray body text.
+    - Use a white form card.
+    - Use a warm orange CTA style if a button appears in the Shopify Forms embed.
+    - The section should feel trustworthy, friendly, low-pressure, and suitable for an international creative-tech brand.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-waitlist-section-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_top }}px 20px {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-waitlist-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-waitlist-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    padding: {{ block.settings.card_padding }}px;
+    border: {{ block.settings.card_border_width }}px solid {{ block.settings.card_border_color }};
+    box-shadow: {{ block.settings.card_shadow_horizontal }}px {{ block.settings.card_shadow_vertical }}px {{ block.settings.card_shadow_blur }}px {{ block.settings.card_shadow_color }};
+  }
+
+  .ai-waitlist-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+    line-height: 1.2;
+  }
+
+  .ai-waitlist-subheading-{{ ai_gen_id }} {
+    color: {{ block.settings.subheading_color }};
+    font-size: {{ block.settings.subheading_size }}px;
+    margin: 0 0 {{ block.settings.subheading_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+    line-height: 1.5;
+  }
+
+  .ai-waitlist-benefits-{{ ai_gen_id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 {{ block.settings.benefits_spacing }}px;
+  }
+
+  .ai-waitlist-benefit-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: {{ block.settings.benefit_text_color }};
+    font-size: {{ block.settings.benefit_text_size }}px;
+    line-height: 1.5;
+  }
+
+  .ai-waitlist-benefit-item-{{ ai_gen_id }}:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-waitlist-benefit-icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+
+  .ai-waitlist-benefit-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    stroke: {{ block.settings.benefit_icon_color }};
+    fill: none;
+  }
+
+  .ai-waitlist-form-placeholder-{{ ai_gen_id }} {
+    margin: 0 0 {{ block.settings.form_spacing }}px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed {{ block.settings.placeholder_border_color }};
+    border-radius: 8px;
+    padding: 30px 20px;
+    background-color: {{ block.settings.placeholder_background }};
+  }
+
+  .ai-waitlist-placeholder-text-{{ ai_gen_id }} {
+    color: {{ block.settings.placeholder_text_color }};
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .ai-waitlist-trust-note-{{ ai_gen_id }} {
+    color: {{ block.settings.trust_note_color }};
+    font-size: {{ block.settings.trust_note_size }}px;
+    text-align: {{ block.settings.text_alignment }};
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-waitlist-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_top_mobile }}px 16px {{ block.settings.padding_bottom_mobile }}px;
+    }
+
+    .ai-waitlist-card-{{ ai_gen_id }} {
+      padding: {{ block.settings.card_padding_mobile }}px;
+    }
+
+    .ai-waitlist-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_mobile }}px;
+    }
+
+    .ai-waitlist-subheading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subheading_size_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<waitlist-section-{{ ai_gen_id }} class="ai-waitlist-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-waitlist-container-{{ ai_gen_id }}">
+    <div class="ai-waitlist-card-{{ ai_gen_id }}">
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-waitlist-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+
+      {% if block.settings.subheading != blank %}
+        <div class="ai-waitlist-subheading-{{ ai_gen_id }}">{{ block.settings.subheading }}</div>
+      {% endif %}
+
+      {% if block.settings.show_benefits %}
+        <ul class="ai-waitlist-benefits-{{ ai_gen_id }}">
+          {% if block.settings.benefit_1 != blank %}
+            <li class="ai-waitlist-benefit-item-{{ ai_gen_id }}">
+              <span class="ai-waitlist-benefit-icon-{{ ai_gen_id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>{{ block.settings.benefit_1 }}</span>
+            </li>
+          {% endif %}
+
+          {% if block.settings.benefit_2 != blank %}
+            <li class="ai-waitlist-benefit-item-{{ ai_gen_id }}">
+              <span class="ai-waitlist-benefit-icon-{{ ai_gen_id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>{{ block.settings.benefit_2 }}</span>
+            </li>
+          {% endif %}
+
+          {% if block.settings.benefit_3 != blank %}
+            <li class="ai-waitlist-benefit-item-{{ ai_gen_id }}">
+              <span class="ai-waitlist-benefit-icon-{{ ai_gen_id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              <span>{{ block.settings.benefit_3 }}</span>
+            </li>
+          {% endif %}
+        </ul>
+      {% endif %}
+
+      <div class="ai-waitlist-form-placeholder-{{ ai_gen_id }}">
+        <div class="ai-waitlist-placeholder-text-{{ ai_gen_id }}">
+          {{ block.settings.placeholder_message }}
+        </div>
+      </div>
+
+      {% if block.settings.trust_note != blank %}
+        <p class="ai-waitlist-trust-note-{{ ai_gen_id }}">{{ block.settings.trust_note }}</p>
+      {% endif %}
+    </div>
+  </div>
+</waitlist-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class WaitlistSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('waitlist-section-{{ ai_gen_id }}', WaitlistSection{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FlowLines waitlist",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the FlowLines Waitlist"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Be the first to try FlowLines — a new way for beginners to create real paintings on paper, step by step."
+    },
+    {
+      "type": "header",
+      "content": "Benefits"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_benefits",
+      "label": "Show benefits",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "benefit_1",
+      "label": "Benefit 1",
+      "default": "Early access before public launch"
+    },
+    {
+      "type": "text",
+      "id": "benefit_2",
+      "label": "Benefit 2",
+      "default": "Exclusive launch discount"
+    },
+    {
+      "type": "text",
+      "id": "benefit_3",
+      "label": "Benefit 3",
+      "default": "Invitations to tester sessions and product updates"
+    },
+    {
+      "type": "header",
+      "content": "Form placeholder"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "placeholder_message",
+      "label": "Placeholder message",
+      "default": "Insert Shopify Forms app block here"
+    },
+    {
+      "type": "header",
+      "content": "Trust note"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "trust_note",
+      "label": "Trust note",
+      "default": "No spam. We'll only send product updates, early access invitations, and launch offers."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 600,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "default": 760
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 20,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Padding",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "card_padding_mobile",
+      "label": "Padding (mobile)",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_horizontal",
+      "label": "Shadow horizontal",
+      "min": -10,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_vertical",
+      "label": "Shadow vertical",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_blur",
+      "label": "Shadow blur",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "card_shadow_color",
+      "label": "Shadow color",
+      "default": "rgba(0, 0, 0, 0.08)"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#faf8f5"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#1a2b4a"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading",
+      "default": "#4a5568"
+    },
+    {
+      "type": "color",
+      "id": "benefit_text_color",
+      "label": "Benefit text",
+      "default": "#2d3748"
+    },
+    {
+      "type": "color",
+      "id": "benefit_icon_color",
+      "label": "Benefit icon",
+      "default": "#f97316"
+    },
+    {
+      "type": "color",
+      "id": "trust_note_color",
+      "label": "Trust note",
+      "default": "#718096"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 56,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 20,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "subheading_size_mobile",
+      "label": "Subheading size (mobile)",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "benefit_text_size",
+      "label": "Benefit text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "trust_note_size",
+      "label": "Trust note size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Heading bottom spacing",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "subheading_spacing",
+      "label": "Subheading bottom spacing",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "benefits_spacing",
+      "label": "Benefits bottom spacing",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "form_spacing",
+      "label": "Form bottom spacing",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Form placeholder style"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_background",
+      "label": "Background",
+      "default": "#f9fafb"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_border_color",
+      "label": "Border color",
+      "default": "#d1d5db"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_text_color",
+      "label": "Text color",
+      "default": "#9ca3af"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FlowLines waitlist"
+    }
+  ]
+}
+{% endschema %}

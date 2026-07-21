@@ -1,0 +1,870 @@
+{% doc %}
+  @prompt
+    Create a Shopify section called "Join the FlowLines Waitlist".
+    
+    This section should be designed as a simple email signup and early access form for a product landing page.
+    
+    Purpose:
+    - Collect emails from people interested in FlowLines.
+    - Make the form feel low-pressure and friendly.
+    - Encourage beginners, parents, DIY creators, and art lovers to join before launch.
+    
+    Layout:
+    - Full-width section with a soft warm cream background.
+    - Center the content with a max width around 760px.
+    - Add generous padding, around 80px top and bottom.
+    - Use a clean card-style form container with a white background, rounded corners, subtle border, and soft shadow.
+    
+    Content:
+    Heading: "Join the FlowLines Waitlist"
+    Subheading: "Be the first to try FlowLines — a new way for beginners to create real paintings on paper, step by step."
+    
+    Add three short benefit points:
+    - Early access before public launch
+    - Exclusive launch discount
+    - Invitations to tester sessions and product updates
+    
+    Form fields:
+    - Email address, required
+    - First name, optional
+    - Dropdown: "Which best describes you?"
+    Options:
+      - Beginner painter
+      - Parent
+      - DIY / craft lover
+      - Gift buyer
+      - Art educator
+      - Other
+    
+    Optional question:
+    "What would you love to paint first?"
+    Options:
+      - Pet
+      - Travel memory
+      - Family photo
+      - Flowers / still life
+      - Kids' imagination
+      - Other
+    
+    Button:
+    "Join the Waitlist"
+    
+    Small note under the button:
+    "No spam. We’ll only send product updates, early access invitations, and launch offers."
+    
+    Design style:
+    - Warm, clean, premium, beginner-friendly.
+    - Use dark navy headings, soft gray body text, white form card, and orange CTA button.
+    - The section should feel trustworthy and low-pressure.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-waitlist-section-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_top }}px 20px {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-waitlist-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-waitlist-card-{{ ai_gen_id }} {
+    background-color: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    border: {{ block.settings.card_border_width }}px solid {{ block.settings.card_border_color }};
+    box-shadow: {{ block.settings.card_shadow_horizontal }}px {{ block.settings.card_shadow_vertical }}px {{ block.settings.card_shadow_blur }}px {{ block.settings.card_shadow_color }};
+    padding: {{ block.settings.card_padding }}px;
+  }
+
+  .ai-waitlist-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-waitlist-subheading-{{ ai_gen_id }} {
+    color: {{ block.settings.subheading_color }};
+    font-size: {{ block.settings.subheading_size }}px;
+    line-height: 1.5;
+    margin: 0 0 {{ block.settings.subheading_spacing }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-waitlist-benefits-{{ ai_gen_id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 {{ block.settings.benefits_spacing }}px;
+  }
+
+  .ai-waitlist-benefit-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: {{ block.settings.benefit_text_color }};
+    font-size: {{ block.settings.benefit_text_size }}px;
+  }
+
+  .ai-waitlist-benefit-icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: {{ block.settings.benefit_icon_color }};
+  }
+
+  .ai-waitlist-form-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.form_field_spacing }}px;
+  }
+
+  .ai-waitlist-field-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-waitlist-label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    color: {{ block.settings.label_color }};
+    font-weight: 500;
+  }
+
+  .ai-waitlist-input-{{ ai_gen_id }},
+  .ai-waitlist-select-{{ ai_gen_id }} {
+    padding: {{ block.settings.input_padding }}px;
+    border: {{ block.settings.input_border_width }}px solid {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    font-size: {{ block.settings.input_text_size }}px;
+    color: {{ block.settings.input_text_color }};
+    background-color: {{ block.settings.input_background }};
+    width: 100%;
+  }
+
+  .ai-waitlist-input-{{ ai_gen_id }}:focus,
+  .ai-waitlist-select-{{ ai_gen_id }}:focus {
+    outline: 2px solid {{ block.settings.input_focus_color }};
+    outline-offset: 2px;
+  }
+
+  .ai-waitlist-button-{{ ai_gen_id }} {
+    padding: {{ block.settings.button_padding }}px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_text_size }}px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+
+  .ai-waitlist-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+  }
+
+  .ai-waitlist-note-{{ ai_gen_id }} {
+    font-size: {{ block.settings.note_text_size }}px;
+    color: {{ block.settings.note_text_color }};
+    text-align: {{ block.settings.text_alignment }};
+    margin-top: {{ block.settings.note_spacing }}px;
+    line-height: 1.4;
+  }
+
+  .ai-waitlist-success-{{ ai_gen_id }} {
+    color: {{ block.settings.success_color }};
+    margin-top: 12px;
+    font-size: {{ block.settings.input_text_size }}px;
+  }
+
+  .ai-waitlist-error-{{ ai_gen_id }} {
+    color: {{ block.settings.error_color }};
+    margin-top: 8px;
+    font-size: {{ block.settings.input_text_size }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-waitlist-section-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_top | times: 0.6 }}px 16px {{ block.settings.padding_bottom | times: 0.6 }}px;
+    }
+
+    .ai-waitlist-card-{{ ai_gen_id }} {
+      padding: {{ block.settings.card_padding | times: 0.7 }}px;
+    }
+
+    .ai-waitlist-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.7 }}px;
+    }
+
+    .ai-waitlist-subheading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subheading_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<waitlist-section-{{ ai_gen_id }} class="ai-waitlist-section-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-waitlist-container-{{ ai_gen_id }}">
+    <div class="ai-waitlist-card-{{ ai_gen_id }}">
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-waitlist-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+
+      {% if block.settings.subheading != blank %}
+        <div class="ai-waitlist-subheading-{{ ai_gen_id }}">{{ block.settings.subheading }}</div>
+      {% endif %}
+
+      <ul class="ai-waitlist-benefits-{{ ai_gen_id }}">
+        {% if block.settings.benefit_1 != blank %}
+          <li class="ai-waitlist-benefit-{{ ai_gen_id }}">
+            <svg class="ai-waitlist-benefit-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{{ block.settings.benefit_1 }}</span>
+          </li>
+        {% endif %}
+
+        {% if block.settings.benefit_2 != blank %}
+          <li class="ai-waitlist-benefit-{{ ai_gen_id }}">
+            <svg class="ai-waitlist-benefit-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{{ block.settings.benefit_2 }}</span>
+          </li>
+        {% endif %}
+
+        {% if block.settings.benefit_3 != blank %}
+          <li class="ai-waitlist-benefit-{{ ai_gen_id }}">
+            <svg class="ai-waitlist-benefit-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{{ block.settings.benefit_3 }}</span>
+          </li>
+        {% endif %}
+      </ul>
+
+      {% form 'contact' %}
+        <input type="hidden" name="contact[waitlist]" value="FlowLines Waitlist">
+        
+        <div class="ai-waitlist-form-{{ ai_gen_id }}">
+          <div class="ai-waitlist-field-{{ ai_gen_id }}">
+            <label for="ai-waitlist-email-{{ ai_gen_id }}" class="ai-waitlist-label-{{ ai_gen_id }}">
+              Email address <span style="color: {{ block.settings.error_color }};">*</span>
+            </label>
+            <input
+              type="email"
+              id="ai-waitlist-email-{{ ai_gen_id }}"
+              name="contact[email]"
+              class="ai-waitlist-input-{{ ai_gen_id }}"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="ai-waitlist-error-{{ ai_gen_id }}"
+              {% endif %}
+              {% if form.posted_successfully? %}
+                aria-describedby="ai-waitlist-success-{{ ai_gen_id }}"
+              {% endif %}
+              placeholder="your@email.com"
+              required
+            >
+          </div>
+
+          <div class="ai-waitlist-field-{{ ai_gen_id }}">
+            <label for="ai-waitlist-name-{{ ai_gen_id }}" class="ai-waitlist-label-{{ ai_gen_id }}">
+              First name
+            </label>
+            <input
+              type="text"
+              id="ai-waitlist-name-{{ ai_gen_id }}"
+              name="contact[first_name]"
+              class="ai-waitlist-input-{{ ai_gen_id }}"
+              placeholder="Your first name"
+            >
+          </div>
+
+          <div class="ai-waitlist-field-{{ ai_gen_id }}">
+            <label for="ai-waitlist-type-{{ ai_gen_id }}" class="ai-waitlist-label-{{ ai_gen_id }}">
+              Which best describes you?
+            </label>
+            <select
+              id="ai-waitlist-type-{{ ai_gen_id }}"
+              name="contact[user_type]"
+              class="ai-waitlist-select-{{ ai_gen_id }}"
+            >
+              <option value="">Select one...</option>
+              <option value="Beginner painter">Beginner painter</option>
+              <option value="Parent">Parent</option>
+              <option value="DIY / craft lover">DIY / craft lover</option>
+              <option value="Gift buyer">Gift buyer</option>
+              <option value="Art educator">Art educator</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="ai-waitlist-field-{{ ai_gen_id }}">
+            <label for="ai-waitlist-interest-{{ ai_gen_id }}" class="ai-waitlist-label-{{ ai_gen_id }}">
+              What would you love to paint first?
+            </label>
+            <select
+              id="ai-waitlist-interest-{{ ai_gen_id }}"
+              name="contact[paint_interest]"
+              class="ai-waitlist-select-{{ ai_gen_id }}"
+            >
+              <option value="">Select one...</option>
+              <option value="Pet">Pet</option>
+              <option value="Travel memory">Travel memory</option>
+              <option value="Family photo">Family photo</option>
+              <option value="Flowers / still life">Flowers / still life</option>
+              <option value="Kids' imagination">Kids' imagination</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="ai-waitlist-button-{{ ai_gen_id }}">
+            {{ block.settings.button_text }}
+          </button>
+
+          {% if form.errors %}
+            <div id="ai-waitlist-error-{{ ai_gen_id }}" class="ai-waitlist-error-{{ ai_gen_id }}">
+              <span>{{ form.errors.messages.email }}</span>
+            </div>
+          {% endif %}
+
+          {% if form.posted_successfully? %}
+            <div id="ai-waitlist-success-{{ ai_gen_id }}" class="ai-waitlist-success-{{ ai_gen_id }}">
+              <span>{{ block.settings.success_message }}</span>
+            </div>
+          {% endif %}
+        </div>
+      {% endform %}
+
+      {% if block.settings.privacy_note != blank %}
+        <div class="ai-waitlist-note-{{ ai_gen_id }}">{{ block.settings.privacy_note }}</div>
+      {% endif %}
+    </div>
+  </div>
+</waitlist-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class WaitlistSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        const form = this.querySelector('form');
+        if (form && form.querySelector('.ai-waitlist-success-{{ ai_gen_id }}')) {
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+
+    customElements.define('waitlist-section-{{ ai_gen_id }}', WaitlistSection{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FlowLines waitlist",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the FlowLines Waitlist"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Be the first to try FlowLines — a new way for beginners to create real paintings on paper, step by step."
+    },
+    {
+      "type": "text",
+      "id": "benefit_1",
+      "label": "Benefit 1",
+      "default": "Early access before public launch"
+    },
+    {
+      "type": "text",
+      "id": "benefit_2",
+      "label": "Benefit 2",
+      "default": "Exclusive launch discount"
+    },
+    {
+      "type": "text",
+      "id": "benefit_3",
+      "label": "Benefit 3",
+      "default": "Invitations to tester sessions and product updates"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Join the Waitlist"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you! We'll be in touch soon with early access details."
+    },
+    {
+      "type": "text",
+      "id": "privacy_note",
+      "label": "Privacy note",
+      "default": "No spam. We'll only send product updates, early access invitations, and launch offers."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 400,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "default": 760
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Section colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FBF8F3"
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Border color",
+      "default": "#E8E8E8"
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Padding",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_horizontal",
+      "label": "Shadow horizontal",
+      "min": -10,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_vertical",
+      "label": "Shadow vertical",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_shadow_blur",
+      "label": "Shadow blur",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "card_shadow_color",
+      "label": "Shadow color",
+      "default": "rgba(0, 0, 0, 0.08)"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color",
+      "default": "#1A2B3C"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Size",
+      "min": 20,
+      "max": 56,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Bottom spacing",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Subheading"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Color",
+      "default": "#5A6C7D"
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "subheading_spacing",
+      "label": "Bottom spacing",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Benefits"
+    },
+    {
+      "type": "color",
+      "id": "benefit_text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "benefit_icon_color",
+      "label": "Icon color",
+      "default": "#FF6B35"
+    },
+    {
+      "type": "range",
+      "id": "benefit_text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "benefits_spacing",
+      "label": "Bottom spacing",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Form fields"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "input_background",
+      "label": "Input background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border color",
+      "default": "#D1D5DB"
+    },
+    {
+      "type": "color",
+      "id": "input_focus_color",
+      "label": "Input focus color",
+      "default": "#FF6B35"
+    },
+    {
+      "type": "range",
+      "id": "input_border_width",
+      "label": "Input border width",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "label": "Input border radius",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "input_padding",
+      "label": "Input padding",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "input_text_size",
+      "label": "Input text size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "form_field_spacing",
+      "label": "Field spacing",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Background",
+      "default": "#FF6B35"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Hover background",
+      "default": "#E55A28"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "button_padding",
+      "label": "Padding",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "label": "Text size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Privacy note"
+    },
+    {
+      "type": "color",
+      "id": "note_text_color",
+      "label": "Text color",
+      "default": "#6B7280"
+    },
+    {
+      "type": "range",
+      "id": "note_text_size",
+      "label": "Text size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "note_spacing",
+      "label": "Top spacing",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Messages"
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success color",
+      "default": "#10B981"
+    },
+    {
+      "type": "color",
+      "id": "error_color",
+      "label": "Error color",
+      "default": "#EF4444"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FlowLines waitlist"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,218 @@
+{% doc %}
+  @prompt
+    Create a small benefit checklist block for the FlowLines waitlist section.
+    
+    This block will sit above a Shopify Forms app block, so do NOT create any form fields, input boxes, or submit buttons.
+    
+    Layout:
+    - Create a clean vertical checklist with three benefit points.
+    - Each row should have a small orange checkmark icon on the left and text on the right.
+    - Align the checklist to the left, but keep it visually centered within the form card.
+    - Use comfortable spacing between rows, around 14–18px.
+    - Keep the design simple, warm, premium, and beginner-friendly.
+    - The block should work well inside a white card container.
+    - On mobile, keep the same vertical layout.
+    
+    Text:
+    1. Early access before public launch
+    2. Exclusive launch discount
+    3. Invitations to tester sessions and product updates
+    
+    Style:
+    - Checkmark color: warm orange, around #D97757.
+    - Text color: soft dark gray, around #3F4654.
+    - Font size: around 15–16px.
+    - Use clean typography.
+    - Do not add a border.
+    - Do not add a background unless needed.
+    - Do not create a new section title.
+    - Do not create a form.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-benefit-checklist-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-benefit-checklist__list-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.row_spacing }}px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ai-benefit-checklist__item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ai-benefit-checklist__icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    margin-top: 2px;
+  }
+
+  .ai-benefit-checklist__icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: {{ block.settings.icon_color }};
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ai-benefit-checklist__text-{{ ai_gen_id }} {
+    flex: 1;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-benefit-checklist__list-{{ ai_gen_id }} {
+      gap: {{ block.settings.row_spacing | times: 0.85 }}px;
+    }
+
+    .ai-benefit-checklist__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.95 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-benefit-checklist-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <ul class="ai-benefit-checklist__list-{{ ai_gen_id }}">
+    {% if block.settings.benefit_1 != blank %}
+      <li class="ai-benefit-checklist__item-{{ ai_gen_id }}">
+        <div class="ai-benefit-checklist__icon-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-benefit-checklist__text-{{ ai_gen_id }}">{{ block.settings.benefit_1 }}</p>
+      </li>
+    {% endif %}
+
+    {% if block.settings.benefit_2 != blank %}
+      <li class="ai-benefit-checklist__item-{{ ai_gen_id }}">
+        <div class="ai-benefit-checklist__icon-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-benefit-checklist__text-{{ ai_gen_id }}">{{ block.settings.benefit_2 }}</p>
+      </li>
+    {% endif %}
+
+    {% if block.settings.benefit_3 != blank %}
+      <li class="ai-benefit-checklist__item-{{ ai_gen_id }}">
+        <div class="ai-benefit-checklist__icon-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <p class="ai-benefit-checklist__text-{{ ai_gen_id }}">{{ block.settings.benefit_3 }}</p>
+      </li>
+    {% endif %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Benefit checklist",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Benefits"
+    },
+    {
+      "type": "text",
+      "id": "benefit_1",
+      "label": "Benefit 1",
+      "default": "Early access before public launch"
+    },
+    {
+      "type": "text",
+      "id": "benefit_2",
+      "label": "Benefit 2",
+      "default": "Exclusive launch discount"
+    },
+    {
+      "type": "text",
+      "id": "benefit_3",
+      "label": "Benefit 3",
+      "default": "Invitations to tester sessions and product updates"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Checkmark color",
+      "default": "#D97757"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#3F4654"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "row_spacing",
+      "label": "Row spacing",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefit checklist"
+    }
+  ]
+}
+{% endschema %}
