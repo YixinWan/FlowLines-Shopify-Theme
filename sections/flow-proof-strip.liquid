@@ -1,0 +1,22 @@
+<section class="flow-proof" aria-label="{{ section.settings.aria_label | escape }}">
+  <div class="flow-proof__inner">
+    {% for block in section.blocks %}
+      <div class="flow-proof__item" {{ block.shopify_attributes }}>
+        <strong>{{ block.settings.title | escape }}</strong>
+        <span>{{ block.settings.caption | escape }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<style>
+.flow-proof{background:#fffcf7;border-bottom:1px solid #e7e3dd}
+.flow-proof__inner{max-width:1280px;margin:auto;padding:29px 42px;display:grid;grid-template-columns:repeat(3,1fr)}
+.flow-proof__item{text-align:center;padding:8px 20px;border-right:1px solid #ddd8d1}
+.flow-proof__item:last-child{border-right:0}
+.flow-proof__item strong{display:block;font-size:clamp(18px,2vw,25px);letter-spacing:-.025em;color:#242424}
+.flow-proof__item span{display:block;margin-top:5px;font-size:13px;color:#65625e}
+@media(max-width:700px){.flow-proof__inner{padding:19px 12px;gap:0}.flow-proof__item{padding:5px 6px}.flow-proof__item strong{font-size:13px}.flow-proof__item span{font-size:10px;line-height:1.35}}
+</style>
+{% schema %}
+{"name":"Flowlines proof strip","settings":[{"type":"text","id":"aria_label","label":"Accessibility label","default":"Why Flowlines"}],"blocks":[{"type":"item","name":"Benefit","settings":[{"type":"text","id":"title","label":"Heading","default":"Made for creating"},{"type":"text","id":"caption","label":"Supporting text","default":"Real art, on real paper"}]}],"max_blocks":3,"presets":[{"name":"Flowlines proof strip","blocks":[{"type":"item"},{"type":"item"},{"type":"item"}]}]}
+{% endschema %}

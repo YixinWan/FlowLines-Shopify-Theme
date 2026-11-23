@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2><strong>Find your flow.</strong></h2><h2><strong> Paint your masterpiece.</strong></h2>",
+            "text": "<h2><strong>Make room for imagination.</strong></h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h3><strong>An intelligent drawing assistant that helps beginners create original artwork on paper.</strong></h3>",
+            "text": "<h3>Create real artwork on paper, guided by Flowlines.</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -92,7 +92,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/acc045e3c339f28c0522ced7663d7442.png",
+        "image_1": "shopify://shop_images/flowlines-projection-demo.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -109,11 +109,11 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 30,
         "section_width": "page-width",
-        "section_height": "medium",
+        "section_height": "large",
         "section_height_custom": 50,
         "background_color": "rgba(0,0,0,0)",
         "toggle_overlay": true,
-        "overlay_color": "#12121266",
+        "overlay_color": "#00000055",
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "blurred_reflection": false,
@@ -181,7 +181,8 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
-      }
+      },
+      "disabled": true
     },
     "17835756186e6c848e": {
       "type": "_blocks",
@@ -304,7 +305,8 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
-      }
+      },
+      "disabled": true
     },
     "custom_liquid_wRetVk": {
       "type": "custom-liquid",
@@ -1798,7 +1800,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>Join the Flowlines Waitlist</h3>",
+            "text": "<h3>Join the waitlist</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -1849,9 +1851,9 @@
         "ai_gen_block_5d4b4f6_AArGbp": {
           "type": "ai_gen_block_5d4b4f6",
           "settings": {
-            "benefit_1": "Early access before public launch",
-            "benefit_2": "Exclusive launch discount",
-            "benefit_3": "Invitations to tester sessions and product updates",
+            "benefit_1": "News about the Flowlines launch",
+            "benefit_2": "Behind-the-scenes product updates",
+            "benefit_3": "Invitations to future creative activities",
             "icon_color": "#d97757",
             "text_color": "#3f4654",
             "text_size": 16,
@@ -1914,21 +1916,103 @@
         "padding-block-start": 31,
         "padding-block-end": 32
       }
+    },
+    "flow_proof": {
+      "type": "flow-proof-strip",
+      "blocks": {
+        "one": {
+          "type": "item",
+          "settings": {
+            "title": "Real paper",
+            "caption": "Make something you can hold"
+          }
+        },
+        "two": {
+          "type": "item",
+          "settings": {
+            "title": "Guided creation",
+            "caption": "From first lines to final color"
+          }
+        },
+        "three": {
+          "type": "item",
+          "settings": {
+            "title": "Your own artwork",
+            "caption": "Inspired by the things you love"
+          }
+        }
+      },
+      "block_order": [
+        "one",
+        "two",
+        "three"
+      ],
+      "settings": {
+        "aria_label": "What makes Flowlines special"
+      }
+    },
+    "flow_duo": {
+      "type": "flow-promo-duo",
+      "blocks": {
+        "first": {
+          "type": "story",
+          "settings": {
+            "image": "shopify://shop_images/flowlines-creative-session.jpg",
+            "title": "Create at your own pace",
+            "description": "Turn a quiet afternoon into something you made by hand, with Flowlines beside you.",
+            "link_label": "See how it works",
+            "link": "/#how-it-works"
+          }
+        },
+        "second": {
+          "type": "story",
+          "settings": {
+            "image": "shopify://shop_images/flowlines-product-studio.jpg",
+            "title": "Beautifully simple hardware",
+            "description": "A compact drawing projector with an adjustable stand, designed to fit naturally into your creative space.",
+            "link_label": "Explore Flowlines",
+            "link": "/#product"
+          }
+        }
+      },
+      "block_order": [
+        "first",
+        "second"
+      ],
+      "settings": {
+        "eyebrow": "Thoughtful tools for creativity",
+        "heading": "Made for your creative moments."
+      }
+    },
+    "flow_spot": {
+      "type": "flow-spotlight",
+      "settings": {
+        "image": "shopify://shop_images/flowlines-projection-demo.jpg",
+        "image_alt": "Silver Flowlines projector shining toward artwork on paper",
+        "eyebrow": "A different way to draw",
+        "heading": "From imagination to real paper.",
+        "description": "See your creative ideas take shape with the guidance of light — and the joy of making art by hand.",
+        "button": "Get early updates",
+        "link": "/#waitlist"
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
-    "178417386348c34cec",
-    "17835756186e6c848e",
+    "flow_proof",
+    "flow_duo",
+    "flow_spot",
     "custom_liquid_wRetVk",
     "1783063736df48c6b0",
     "custom_liquid_ncRHBb",
     "carousel_74ccmQ",
     "custom_liquid_WYDfWe",
     "1783318153fbfd447b",
-    "17830645551c9338ce",
-    "1783060256d7c46b12",
     "custom_liquid_pc83Dk",
-    "17835894588d2ed373"
+    "17835894588d2ed373",
+    "178417386348c34cec",
+    "17835756186e6c848e",
+    "17830645551c9338ce",
+    "1783060256d7c46b12"
   ]
 }
