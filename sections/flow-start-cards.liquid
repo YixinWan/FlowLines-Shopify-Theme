@@ -7,15 +7,15 @@
     </div>
     <div class="fl-start__grid">
       <a class="fl-start__card" href="/#how-it-works" aria-label="Learn about the Flowlines drawing projector">
-        <div class="fl-start__copy"><span class="fl-start__number">01 / HARDWARE</span><h3>Drawing Projector</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
+        <div class="fl-start__copy"><h3>Drawing Projector</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
         <img src="{{ 'flowlines-projector-original-cutout.png' | file_img_url: '1000x' }}" width="1440" height="1080" alt="Original Flowlines silver drawing projector with detailed adjustable stand" loading="lazy">
       </a>
       <a class="fl-start__card" href="/#how-it-works" aria-label="Explore the guided drawing app">
-        <div class="fl-start__copy"><span class="fl-start__number">02 / SOFTWARE</span><h3>Guided Drawing App</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
+        <div class="fl-start__copy"><h3>Guided Drawing App</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
         <img src="{{ 'flowlines-tablet-paper-cutout.png' | file_img_url: '1000x' }}" width="1440" height="1080" alt="Tablet showing guided flower drawing beside a single matching painted paper sheet" loading="lazy">
       </a>
       <a class="fl-start__card" href="/#faq" aria-label="Learn which art materials can be used with Flowlines">
-        <div class="fl-start__copy"><span class="fl-start__number">03 / ART MATERIALS</span><h3>Art Materials</h3><span class="fl-start__link">Complete creative kit <span aria-hidden="true">↗</span></span></div>
+        <div class="fl-start__copy"><h3>Art Materials</h3><span class="fl-start__link">Complete creative kit <span aria-hidden="true">↗</span></span></div>
         {{ 'flowlines-complete-art-kit.png' | file_img_url: '1000x' | img_tag: 'Complete art materials kit with markers, crayons, colored pencils, paints and brushes', 'fl-start__materials-image' }}
       </a>
     </div>
@@ -30,11 +30,11 @@
 .fl-start__intro>p:last-child{color:#676767;font-size:17px;margin:0}
 .fl-start__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .fl-start__card{position:relative;display:block;overflow:hidden;min-height:555px;border-radius:18px;background:#fff;border:1px solid #ededed;text-align:center;color:#111;text-decoration:none;isolation:isolate;transition:transform .25s,box-shadow .25s}
-.fl-start__card::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 82% 31% at 52% 103%,transparent 69%,rgba(193,202,208,.22) 69.3%,rgba(193,202,208,.22) 69.65%,transparent 70%),radial-gradient(ellipse 74% 30% at 50% 103%,transparent 84%,rgba(193,202,208,.16) 84.3%,rgba(193,202,208,.16) 84.7%,transparent 85%),linear-gradient(155deg,#fff 38%,#fafafa 100%)}
+.fl-start__card::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 93% 34% at 48% 107%,transparent 61%,rgba(174,183,188,.55) 61.25%,rgba(174,183,188,.55) 61.8%,transparent 62%),radial-gradient(ellipse 88% 37% at 52% 109%,transparent 72%,rgba(174,183,188,.42) 72.25%,rgba(174,183,188,.42) 72.75%,transparent 73%),radial-gradient(ellipse 97% 41% at 49% 112%,transparent 84%,rgba(174,183,188,.30) 84.25%,rgba(174,183,188,.30) 84.7%,transparent 85%),linear-gradient(155deg,#fff 35%,#f8f9f9 100%)}
 .fl-start__card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(0,0,0,.08)}
 .fl-start__copy{position:relative;z-index:2;padding:45px 16px 0}
-.fl-start__number{font-size:11px;font-weight:700;letter-spacing:.16em;color:#8c8c8c}
-.fl-start__card h3{font-size:clamp(23px,2.05vw,32px);line-height:1.18;letter-spacing:-.035em;font-weight:750;margin:13px 0 15px}
+
+.fl-start__card h3{font-size:clamp(23px,2.05vw,32px);line-height:1.18;letter-spacing:-.035em;font-weight:750;margin:0 0 15px}
 .fl-start__link{font-size:14px;font-weight:600;color:#d87550}
 .fl-start__card img{position:absolute;bottom:0;left:4%;width:92%;height:68%;object-fit:contain;object-position:center bottom;transition:transform .45s}
 .fl-start__card:hover img{transform:scale(1.035)}
