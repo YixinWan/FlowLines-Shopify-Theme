@@ -1507,11 +1507,21 @@
     "flow_starter_cards": {
       "type": "flow-start-cards",
       "settings": {}
+    },
+    "flow_video_showcase": {
+      "type": "flow-video-showcase",
+      "settings": {
+        "heading": "See Flowlines in Action",
+        "subheading": "From your first outline to a finished piece of art.",
+        "poster": "shopify://shop_images/flowlines-projection-demo.jpg",
+        "placeholder_text": "A closer look at Flowlines"
+      }
     }
   },
   "order": [
     "flow_hero_slider",
     "flow_starter_cards",
+    "flow_video_showcase",
     "1783063736df48c6b0",
     "custom_liquid_ncRHBb",
     "17835756186e6c848e",
