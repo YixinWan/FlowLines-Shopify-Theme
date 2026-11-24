@@ -57,7 +57,7 @@
     let hovered = false;
     const setup = () => {
       animation?.cancel();
-      const columns = window.innerWidth < 750 ? 2 : {{ section.settings.columns }};
+      const columns = window.innerWidth < 750 ? {{ section.settings.mobile_columns | default: '2' }} : {{ section.settings.columns }};
       const gap = {{ section.settings.columns_gap | default: 12 }};
       const width = Math.max(110, (window.innerWidth - gap * (columns + 1)) / columns);
       originals.concat(copies).forEach((card) => {
