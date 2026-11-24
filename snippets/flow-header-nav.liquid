@@ -1,0 +1,16 @@
+<nav class="flow-header-nav" aria-label="Main navigation">
+  <a href="/">Projector</a>
+  <a href="/#how-it-works">How It Works</a>
+  <a href="/#testers">Artworks</a>
+  <a href="/#flowlines-community">Community</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist">Join Waitlist</a>
+</nav>
+<style>
+@media(min-width:750px){
+  #header-component .flow-header-nav{display:flex;align-items:center;justify-content:center;gap:clamp(16px,2.1vw,36px);white-space:nowrap}
+  #header-component .flow-header-nav a{font-size:clamp(12px,1.08vw,15px);font-weight:600;line-height:1.3;color:inherit;text-decoration:none;letter-spacing:-.01em;padding:12px 0;transition:opacity .2s}
+  #header-component .flow-header-nav a:hover{opacity:.55}
+}
+@media(max-width:749px){#header-component .flow-header-nav{display:none}}
+</style>
