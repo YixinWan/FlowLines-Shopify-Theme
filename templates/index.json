@@ -1554,13 +1554,13 @@
     "flow_hero_slider": {
       "type": "flow-hero-slideshow",
       "settings": {
-        "image_1": "shopify://shop_images/acc045e3c339f28c0522ced7663d7442.png",
+        "image_1": "shopify://shop_images/flowlines-projection-demo.jpg",
         "title_1": "Find your flow.\nPaint your masterpiece.",
         "text_1": "An intelligent drawing assistant that helps beginners create original artwork on paper.",
         "image_2": "shopify://shop_images/flowlines-creative-session.jpg",
         "title_2": "Your ideas.\nBeautifully brought to life.",
         "text_2": "Turn inspiration into artwork, one creative step at a time.",
-        "image_3": "shopify://shop_images/flowlines-projection-demo.jpg",
+        "image_3": "shopify://shop_images/flowlines-product-studio.jpg",
         "title_3": "From first sketch\nto final color.",
         "text_3": "Enjoy the process of making something truly your own."
       }
