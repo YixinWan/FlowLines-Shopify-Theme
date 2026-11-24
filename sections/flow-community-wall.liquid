@@ -1,0 +1,74 @@
+<section class="fl-community" aria-labelledby="fl-community-title-{{ section.id }}">
+  <div class="fl-community__heading">
+    <div>
+      <span class="fl-community__eyebrow">THE FLOWLINES COMMUNITY</span>
+      <h2 id="fl-community-title-{{ section.id }}">Made for the joy of creating.</h2>
+      <p>Little moments. Big creative possibilities.</p>
+    </div>
+    <span class="fl-community__sample">Community preview · Sample content</span>
+  </div>
+  {% assign art_names = 'flowlines-artwork-yellow-flowers.png|flowlines-artwork-thanksgiving.png|flowlines-artwork-colorful-friends.png|flowlines-artwork-red-apple.png|flowlines-artwork-lakeside-village.png|flowlines-artwork-blue-rabbit.png' | split: '|' %}
+  {% assign lines = 'A little creativity goes a long way.|Every idea deserves a place on paper.|Create something that feels like you.|Start simple. Make something beautiful.|A fresh way to enjoy making art.|Your next creative moment starts here.|Make room for happy accidents.|From imagination to something real.' | split: '|' %}
+  <div class="fl-community__viewport" aria-label="Scrolling creative inspiration gallery">
+    <div class="fl-community__columns">
+      {% for column in (0..3) %}
+        <div class="fl-community__column{% if column == 1 or column == 3 %} fl-community__column--reverse{% endif %}">
+          <div class="fl-community__rail">
+            {% for repeat in (1..2) %}
+              <div class="fl-community__set"{% if repeat == 2 %} aria-hidden="true"{% endif %}>
+                {% for item in (0..3) %}
+                  {% assign position = column | times: 4 | plus: item %}
+                  {% assign photo_index = position | modulo: 6 %}
+                  {% assign phrase_index = position | modulo: 8 %}
+                  {% assign image_name = art_names[photo_index] %}
+                  {% assign phrase = lines[phrase_index] %}
+                  {% assign is_image = position | modulo: 3 %}
+                  {% if is_image != 1 %}
+                    <div class="fl-community__card fl-community__card--image">
+                      <img src="{{ image_name | file_url }}" alt="Flowlines creative artwork preview" loading="lazy" width="440" height="440">
+                    </div>
+                  {% else %}
+                    <div class="fl-community__card fl-community__card--quote">
+                      <span class="fl-community__quote-mark" aria-hidden="true">“</span>
+                      <p>{{ phrase }}</p>
+                      <span class="fl-community__label">Sample review copy</span>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<style>
+.fl-community{padding:100px max(20px,calc((100vw - 1400px)/2));background:#fff;color:#1b1b1d;overflow:hidden}
+.fl-community__heading{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:40px}
+.fl-community__eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;color:#de8062}
+.fl-community h2{font-size:clamp(35px,4.8vw,70px);letter-spacing:-.055em;line-height:1.05;margin:15px 0}
+.fl-community__heading p{font-size:18px;color:#8a8a8a;margin:0}
+.fl-community__sample{font-size:12px;color:#9b9b9b;white-space:nowrap;padding-bottom:4px}
+.fl-community__viewport{height:640px;position:relative;overflow:hidden;mask-image:linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent)}
+.fl-community__columns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;height:100%}
+.fl-community__column{height:100%;overflow:hidden}
+.fl-community__rail{display:flex;flex-direction:column;animation:fl-community-up 45s linear infinite;will-change:transform}
+.fl-community__column--reverse .fl-community__rail{animation-name:fl-community-down;animation-duration:52s;transform:translateY(-50%)}
+.fl-community__viewport:hover .fl-community__rail,.fl-community__viewport:focus-within .fl-community__rail{animation-play-state:paused}
+.fl-community__set{display:flex;flex-direction:column;gap:20px;padding-bottom:20px}
+.fl-community__card{border:1px solid #ececec;border-radius:22px;overflow:hidden;background:#f8f8f8}
+.fl-community__card--image{height:258px;display:flex;align-items:center;justify-content:center}
+.fl-community__card--image img{width:100%;height:100%;object-fit:contain;display:block}
+.fl-community__card--quote{min-height:200px;display:flex;flex-direction:column;justify-content:center;padding:27px;background:#fff}
+.fl-community__quote-mark{font-family:Georgia,serif;font-size:48px;line-height:.8;color:#e49a80}
+.fl-community__card--quote p{font-size:clamp(18px,1.6vw,25px);line-height:1.35;letter-spacing:-.025em;font-weight:600;margin:15px 0 22px}
+.fl-community__label{font-size:11px;letter-spacing:.04em;color:#999}
+@keyframes fl-community-up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes fl-community-down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+@media(max-width:749px){.fl-community{padding:64px 0 68px}.fl-community__heading{padding:0 20px;display:block;margin-bottom:25px}.fl-community h2{font-size:36px}.fl-community__heading p{font-size:15px}.fl-community__sample{display:block;margin-top:16px}.fl-community__viewport{height:480px}.fl-community__columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 10px}.fl-community__column:nth-child(n+3){display:none}.fl-community__set{gap:10px;padding-bottom:10px}.fl-community__card{border-radius:14px}.fl-community__card--image{height:180px}.fl-community__card--quote{min-height:160px;padding:17px}.fl-community__card--quote p{font-size:17px}.fl-community__quote-mark{font-size:35px}}
+@media(prefers-reduced-motion:reduce){.fl-community__rail,.fl-community__column--reverse .fl-community__rail{animation:none;transform:none}.fl-community__viewport{overflow:auto;mask-image:none}}
+</style>
+{% schema %}
+{"name":"Community wall","settings":[],"presets":[{"name":"Community wall"}]}
+{% endschema %}

@@ -1659,6 +1659,10 @@
         "button": "Get early updates",
         "link": "/#waitlist"
       }
+    },
+    "flow_community": {
+      "type": "flow-community-wall",
+      "settings": {}
     }
   },
   "order": [
@@ -1669,6 +1673,7 @@
     "17835756186e6c848e",
     "custom_liquid_wRetVk",
     "carousel_74ccmQ",
+    "flow_community",
     "custom_liquid_WYDfWe",
     "1783318153fbfd447b",
     "custom_liquid_pc83Dk",
