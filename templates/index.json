@@ -946,13 +946,239 @@
                 "text_Pqqpqx",
                 "text_qYXzTK"
               ]
+            },
+            "card_lakeside": {
+              "type": "_card",
+              "name": "t:names.card",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "aspect_ratio": "adapt",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "image_tnPCck": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/flowlines-artwork-lakeside-village.png",
+                    "link": "",
+                    "image_ratio": "adapt",
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_qayrY8": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<p>Lakeside landscape</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h5",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_LmfPkx": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>A colorful scene brought to life on paper</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 15,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_tnPCck",
+                "text_qayrY8",
+                "text_LmfPkx"
+              ]
+            },
+            "card_bluerabbit": {
+              "type": "_card",
+              "name": "t:names.card",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "aspect_ratio": "adapt",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "image_tnPCck": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/flowlines-artwork-blue-rabbit.png",
+                    "link": "",
+                    "image_ratio": "adapt",
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_qayrY8": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<p>Blue rabbit portrait</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h5",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "text_LmfPkx": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>A playful character with expressive brushstrokes</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 15,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_tnPCck",
+                "text_qayrY8",
+                "text_LmfPkx"
+              ]
             }
           },
           "block_order": [
             "card_keYCWb",
             "card_tXPE9R",
             "card_x9QKkj",
-            "card_dG4i4e"
+            "card_dG4i4e",
+            "card_lakeside",
+            "card_bluerabbit"
           ]
         }
       },
