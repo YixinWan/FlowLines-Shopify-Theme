@@ -45,6 +45,13 @@
   class="force-full-width"
   style="{{ gutter_style }}"
 >
+  {% if section.settings.auto_scroll %}
+    <div class="flow-marquee" data-flow-marquee data-speed="{{ section.settings.continuous_speed }}" style="{{ slideshow_style }};width:100%;overflow:hidden;position:relative;">
+      <div class="flow-marquee-track" style="display:flex;position:relative;width:max-content;gap:{{ section.settings.columns_gap | default: 12 }}px;align-items:flex-start;">
+        {{ blocks_content }}
+      </div>
+    </div>
+  {% else %}
   {% render 'slideshow',
     class: slideshow_class,
     style: slideshow_style,
@@ -62,9 +69,52 @@
     slideshow_gutters: slideshow_gutters,
     attributes: block.shopify_attributes
   %}
+  {% endif %}
 </div>
 
 {% stylesheet %}
+  .flow-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .flow-marquee-track {
+    display: flex;
+    position: relative;
+    width: max-content;
+    gap: var(--carousel-gap, 12px);
+    align-items: flex-start;
+  }
+  .flow-marquee-track > .card {
+    flex: 0 0 auto;
+    width: calc((100vw - (var(--carousel-gap, 12px) * 5)) / var(--carousel-columns, 5));
+    height: auto;
+  }
+  .flow-marquee[data-ready] .flow-marquee-track {
+    animation: flow-artwork-drift var(--flow-duration, 55s) linear infinite;
+  }
+  .flow-marquee:hover .flow-marquee-track,
+  .flow-marquee:focus-within .flow-marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes flow-artwork-drift {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(calc(-1 * var(--flow-distance)), 0, 0); }
+  }
+  @media (max-width: 749px) {
+    .flow-marquee-track > .card {
+      width: calc((100vw - var(--carousel-gap, 12px) * 3) / var(--carousel-mobile-columns, 2));
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flow-marquee {
+      overflow-x: auto;
+    }
+    .flow-marquee-track {
+      animation: none !important;
+    }
+  }
+
   .carousel-content slideshow-slides {
     --slideshow-gap: var(--carousel-gap);
   }

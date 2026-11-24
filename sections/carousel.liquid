@@ -32,20 +32,57 @@
 {% if section.settings.auto_scroll %}
 <script>
   (() => {
-    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const apply = () => {
-      const slider = document.querySelector('#shopify-section-{{ section.id }} slideshow-component');
-      if (!slider) return;
-      if (preference.matches) {
-        slider.removeAttribute('autoplay');
-        slider.pause?.();
+    const viewport = document.querySelector('#shopify-section-{{ section.id }} [data-flow-marquee]');
+    if (!viewport) return;
+    const track = viewport.querySelector('.flow-marquee-track');
+    const originals = Array.from(track.children);
+    if (!originals.length) return;
+    const copies = originals.map((card) => {
+      const copy = card.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      copy.setAttribute('data-flow-copy', '');
+      copy.style.pointerEvents = 'none';
+      copy.querySelectorAll('[id], [ref], [data-shopify-editor-block]').forEach((node) => {
+        node.removeAttribute('id');
+        node.removeAttribute('ref');
+        node.removeAttribute('data-shopify-editor-block');
+      });
+      copy.removeAttribute('id');
+      copy.removeAttribute('ref');
+      track.appendChild(copy);
+      return copy;
+    });
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let animation;
+    let hovered = false;
+    const setup = () => {
+      animation?.cancel();
+      const columns = window.innerWidth < 750 ? 2 : {{ section.settings.columns }};
+      const gap = {{ section.settings.columns_gap | default: 12 }};
+      const width = Math.max(110, (window.innerWidth - gap * (columns + 1)) / columns);
+      originals.concat(copies).forEach((card) => {
+        card.style.flex = '0 0 auto';
+        card.style.width = width + 'px';
+        card.style.height = 'auto';
+      });
+      const distance = copies[0].offsetLeft - originals[0].offsetLeft;
+      if (!motion.matches && distance > 0) {
+        animation = track.animate(
+          [{ transform: 'translate3d(0, 0, 0)' }, { transform: 'translate3d(-' + distance + 'px, 0, 0)' }],
+          { duration: distance / {{ section.settings.continuous_speed }} * 1000, iterations: Infinity, easing: 'linear' }
+        );
+        if (hovered) animation.pause();
       } else {
-        slider.setAttribute('autoplay', '{{ section.settings.auto_scroll_interval }}');
-        slider.play?.();
+        animation = null;
       }
     };
-    customElements.whenDefined('slideshow-component').then(apply);
-    preference.addEventListener?.('change', apply);
+    viewport.addEventListener('mouseenter', () => { hovered = true; animation?.pause(); });
+    viewport.addEventListener('mouseleave', () => { hovered = false; animation?.play(); });
+    viewport.addEventListener('focusin', () => { hovered = true; animation?.pause(); });
+    viewport.addEventListener('focusout', () => { hovered = false; animation?.play(); });
+    window.addEventListener('resize', setup, { passive: true });
+    motion.addEventListener?.('change', setup);
+    requestAnimationFrame(setup);
   })();
 </script>
 {% endif %}
@@ -58,7 +95,7 @@
   },
   "settings": [
     {"type":"checkbox","id":"auto_scroll","label":"Automatically advance slides","default":false},
-    {"type":"range","id":"auto_scroll_interval","label":"Seconds between slides","min":3,"max":10,"step":1,"unit":"s","default":5},
+    {"type":"range","id":"continuous_speed","label":"Scroll speed (px per second)","min":20,"max":80,"step":5,"unit":"px","default":35},
     {
       "type": "range",
       "id": "columns",
