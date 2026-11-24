@@ -9,67 +9,6 @@
  */
 {
   "sections": {
-    "178417386348c34cec": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_4d50537_Yfr3dz": {
-          "type": "ai_gen_block_4d50537",
-          "settings": {
-            "title": "What You Get",
-            "subtitle": "Complete hardware and software solution for your creative journey",
-            "title_size": 48,
-            "subtitle_size": 18,
-            "hardware_badge": "Hardware",
-            "hardware_title": "Smart Drawing Projector",
-            "hardware_description": "<p>AI-powered projector that transforms any photo into a traceable guide on your canvas</p>",
-            "software_badge": "Software",
-            "software_title": "Guided Learning App",
-            "software_description": "<p>Step-by-step tutorials and smart features that guide you from beginner to artist</p>",
-            "background_color": "#f8f8f8",
-            "text_color": "#000000",
-            "card_background": "#ffffff",
-            "badge_background": "#000000",
-            "badge_text_color": "#ffffff",
-            "card_border_radius": 16,
-            "image_border_radius": 12,
-            "item_title_size": 24,
-            "description_size": 16
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_4d50537_Yfr3dz"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#ffffff",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
     "17835756186e6c848e": {
       "type": "_blocks",
       "blocks": {
@@ -1564,11 +1503,15 @@
         "title_3": "From first sketch\nto final color.",
         "text_3": "Enjoy the process of making something truly your own."
       }
+    },
+    "flow_starter_cards": {
+      "type": "flow-start-cards",
+      "settings": {}
     }
   },
   "order": [
     "flow_hero_slider",
-    "178417386348c34cec",
+    "flow_starter_cards",
     "1783063736df48c6b0",
     "custom_liquid_ncRHBb",
     "17835756186e6c848e",
