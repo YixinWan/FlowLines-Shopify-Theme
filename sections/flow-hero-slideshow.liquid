@@ -1,0 +1,115 @@
+<section id="flow-hero-{{ section.id }}" class="fl-hero" aria-label="Flowlines product highlights" aria-roledescription="carousel">
+  <div class="fl-hero__slides">
+    {% for index in (1..3) %}
+      {% liquid
+        assign image_key = 'image_' | append: index
+        assign title_key = 'title_' | append: index
+        assign text_key = 'text_' | append: index
+        assign hero_image = section.settings[image_key]
+        assign hero_title = section.settings[title_key]
+        assign hero_text = section.settings[text_key]
+      %}
+      <div class="fl-hero__slide{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}" aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}">
+        {% if hero_image != blank %}
+          {{ hero_image | image_url: width: 2400 | image_tag: loading: 'eager', class: 'fl-hero__image', sizes: '100vw', widths: '750, 1100, 1500, 1900, 2400' }}
+        {% endif %}
+        <div class="fl-hero__shade"></div>
+        <div class="fl-hero__content">
+          <div class="fl-hero__eyebrow">FLOWLINES · CREATE WITH CONFIDENCE</div>
+          <h1>{{ hero_title | escape | newline_to_br }}</h1>
+          <p>{{ hero_text | escape }}</p>
+          <a class="fl-hero__cta" href="/#waitlist">Join Waitlist <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <button class="fl-hero__arrow fl-hero__arrow--prev" type="button" data-hero-prev aria-label="Previous slide">‹</button>
+  <button class="fl-hero__arrow fl-hero__arrow--next" type="button" data-hero-next aria-label="Next slide">›</button>
+  <div class="fl-hero__dots" aria-label="Choose a slide">
+    {% for index in (1..3) %}
+      <button type="button" class="fl-hero__dot{% if forloop.first %} is-active{% endif %}" data-hero-dot="{{ forloop.index0 }}" aria-label="Show slide {{ index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"><span></span></button>
+    {% endfor %}
+  </div>
+</section>
+<style>
+#flow-hero-{{ section.id }}{position:relative;width:100%;height:clamp(530px,49vw,720px);overflow:hidden;background:#e6e7e6;color:#fff;isolation:isolate}
+#flow-hero-{{ section.id }} .fl-hero__slides,#flow-hero-{{ section.id }} .fl-hero__slide{position:absolute;inset:0}
+#flow-hero-{{ section.id }} .fl-hero__slide{opacity:0;visibility:hidden;transition:opacity .95s ease,visibility .95s;pointer-events:none}
+#flow-hero-{{ section.id }} .fl-hero__slide.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:1}
+#flow-hero-{{ section.id }} .fl-hero__image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+#flow-hero-{{ section.id }} .fl-hero__shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,22,26,.65),rgba(16,22,26,.32) 44%,rgba(16,22,26,.06) 78%)}
+#flow-hero-{{ section.id }} .fl-hero__content{position:relative;z-index:1;max-width:1440px;height:100%;margin:auto;padding:8% max(70px,7vw);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+#flow-hero-{{ section.id }} .fl-hero__eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;margin-bottom:18px}
+#flow-hero-{{ section.id }} h1{font-size:clamp(44px,5.5vw,82px);font-weight:750;line-height:1.08;letter-spacing:-.05em;max-width:800px;margin:0 0 23px}
+#flow-hero-{{ section.id }} p{font-size:clamp(17px,1.6vw,23px);line-height:1.4;font-weight:550;max-width:620px;margin:0 0 36px}
+#flow-hero-{{ section.id }} .fl-hero__cta{display:inline-flex;align-items:center;gap:30px;padding:15px 30px;border-radius:11px;background:#d97757;color:#fff;text-decoration:none;font-weight:650;font-size:16px}
+#flow-hero-{{ section.id }} .fl-hero__cta:hover{background:#c86949}
+#flow-hero-{{ section.id }} .fl-hero__arrow{position:absolute;z-index:3;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:52px;height:52px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:#1d1d1f;cursor:pointer;font-size:38px;line-height:1;padding:0 0 6px}
+#flow-hero-{{ section.id }} .fl-hero__arrow:hover{background:#fff}
+#flow-hero-{{ section.id }} .fl-hero__arrow--prev{left:22px}
+#flow-hero-{{ section.id }} .fl-hero__arrow--next{right:22px}
+#flow-hero-{{ section.id }} .fl-hero__dots{position:absolute;z-index:3;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:4px;border-radius:100px;background:rgba(255,255,255,.9);padding:9px 12px}
+#flow-hero-{{ section.id }} .fl-hero__dot{border:0;background:transparent;padding:6px;cursor:pointer}
+#flow-hero-{{ section.id }} .fl-hero__dot span{display:block;width:8px;height:8px;border-radius:10px;background:#b8b8b8;transition:width .25s,background .25s}
+#flow-hero-{{ section.id }} .fl-hero__dot.is-active span{width:34px;background:#222}
+@media(max-width:749px){#flow-hero-{{ section.id }}{height:650px}#flow-hero-{{ section.id }} .fl-hero__image{object-position:60% center}#flow-hero-{{ section.id }} .fl-hero__shade{background:linear-gradient(0deg,rgba(10,18,22,.68),rgba(10,18,22,.28) 78%)}#flow-hero-{{ section.id }} .fl-hero__content{padding:72px 24px 100px;justify-content:center}#flow-hero-{{ section.id }} h1{font-size:clamp(38px,10vw,52px)}#flow-hero-{{ section.id }} p{font-size:18px}#flow-hero-{{ section.id }} .fl-hero__arrow{width:36px;height:36px;font-size:28px;top:auto;bottom:18px;transform:none}#flow-hero-{{ section.id }} .fl-hero__arrow--prev{left:20px}#flow-hero-{{ section.id }} .fl-hero__arrow--next{right:20px}#flow-hero-{{ section.id }} .fl-hero__dots{bottom:29px}}
+@media(prefers-reduced-motion:reduce){#flow-hero-{{ section.id }} .fl-hero__slide{transition:none}}
+</style>
+<script>
+(() => {
+  const hero = document.getElementById('flow-hero-{{ section.id }}');
+  if (!hero) return;
+  const slides = [...hero.querySelectorAll('[data-slide]')];
+  const dots = [...hero.querySelectorAll('[data-hero-dot]')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0;
+  let timer;
+  let paused = false;
+  function show(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, n) => {
+      const active = n === current;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+      slide.querySelectorAll('a').forEach(a => { a.tabIndex = active ? 0 : -1; });
+    });
+    dots.forEach((dot,n) => {
+      dot.classList.toggle('is-active',n === current);
+      dot.setAttribute('aria-current',String(n === current));
+    });
+  }
+  function stop() { clearInterval(timer); timer = null; }
+  function start() {
+    stop();
+    if (!reduceMotion.matches && !paused && !document.hidden) timer = setInterval(() => show(current + 1), 9000);
+  }
+  hero.querySelector('[data-hero-prev]').addEventListener('click', () => { show(current - 1); start(); });
+  hero.querySelector('[data-hero-next]').addEventListener('click', () => { show(current + 1); start(); });
+  dots.forEach((dot,n) => dot.addEventListener('click', () => { show(n); start(); }));
+  hero.addEventListener('mouseenter', () => { paused = true; stop(); });
+  hero.addEventListener('mouseleave', () => { paused = false; start(); });
+  hero.addEventListener('focusin', () => { paused = true; stop(); });
+  hero.addEventListener('focusout', () => { paused = false; start(); });
+  document.addEventListener('visibilitychange', start);
+  reduceMotion.addEventListener?.('change', start);
+  show(0);
+  start();
+})();
+</script>
+{% schema %}
+{
+ "name":"Flowlines hero slider",
+ "settings":[
+  {"type":"image_picker","id":"image_1","label":"Slide 1 image"},
+  {"type":"textarea","id":"title_1","label":"Slide 1 title","default":"Find your flow.\nPaint your masterpiece."},
+  {"type":"text","id":"text_1","label":"Slide 1 description","default":"An intelligent drawing assistant that helps beginners create original artwork on paper."},
+  {"type":"image_picker","id":"image_2","label":"Slide 2 image"},
+  {"type":"textarea","id":"title_2","label":"Slide 2 title","default":"Your ideas.\nBeautifully brought to life."},
+  {"type":"text","id":"text_2","label":"Slide 2 description","default":"Turn inspiration into artwork, one creative step at a time."},
+  {"type":"image_picker","id":"image_3","label":"Slide 3 image"},
+  {"type":"textarea","id":"title_3","label":"Slide 3 title","default":"From first sketch\nto final color."},
+  {"type":"text","id":"text_3","label":"Slide 3 description","default":"Enjoy the process of making something truly your own."}
+ ],
+ "presets":[{"name":"Flowlines hero slider"}]
+}
+{% endschema %}
