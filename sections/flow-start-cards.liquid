@@ -8,15 +8,15 @@
     <div class="fl-start__grid">
       <a class="fl-start__card" href="/#how-it-works" aria-label="Learn about the Flowlines drawing projector">
         <div class="fl-start__copy"><span class="fl-start__number">01 / HARDWARE</span><h3>Drawing Projector</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
-        <img src="{{ 'flowlines-projector-cutout.png' | file_img_url: '1000x' }}" width="1440" height="1080" alt="Flowlines silver drawing projector with adjustable stand" loading="lazy">
+        <img src="{{ 'flowlines-projector-original-cutout.png' | file_img_url: '1000x' }}" width="1440" height="1080" alt="Original Flowlines silver drawing projector with detailed adjustable stand" loading="lazy">
       </a>
       <a class="fl-start__card" href="/#how-it-works" aria-label="Explore the guided drawing app">
         <div class="fl-start__copy"><span class="fl-start__number">02 / SOFTWARE</span><h3>Guided Drawing App</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
-        <img src="{{ 'flowlines-guided-app-cutout.png' | file_img_url: '1000x' }}" width="1440" height="1080" alt="Flowlines guided drawing application shown on a tablet" loading="lazy">
+        <img src="{{ 'flowlines-guided-drawing-app.png' | asset_url }}" width="1440" height="1080" alt="Guided drawing app shown beside a completed painting on paper" loading="lazy">
       </a>
       <a class="fl-start__card" href="/#faq" aria-label="Learn which art materials can be used with Flowlines">
-        <div class="fl-start__copy"><span class="fl-start__number">03 / ART MATERIALS</span><h3>Art Materials</h3><span class="fl-start__link">Markers · crayons · pencils <span aria-hidden="true">↗</span></span></div>
-        {{ 'flowlines-art-materials-cutout.png' | file_img_url: '1000x' | img_tag: 'Markers, pencils, paints and brushes used for creating artwork with Flowlines', 'fl-start__materials-image' }}
+        <div class="fl-start__copy"><span class="fl-start__number">03 / ART MATERIALS</span><h3>Art Materials</h3><span class="fl-start__link">Complete creative kit <span aria-hidden="true">↗</span></span></div>
+        {{ 'flowlines-complete-art-kit.png' | file_img_url: '1000x' | img_tag: 'Complete art materials kit with markers, crayons, colored pencils, paints and brushes', 'fl-start__materials-image' }}
       </a>
     </div>
   </div>
@@ -37,7 +37,7 @@
 .fl-start__link{font-size:14px;font-weight:600;color:#d87550}
 .fl-start__card img{position:absolute;bottom:0;left:4%;width:92%;height:68%;object-fit:contain;object-position:center bottom;transition:transform .45s}
 .fl-start__card:hover img{transform:scale(1.035)}
-.fl-start__card:nth-child(3) img{object-position:center bottom}
+.fl-start__card:nth-child(1) img{height:76%}.fl-start__card:nth-child(2) img{width:100%;left:0;object-fit:cover;object-position:center bottom}.fl-start__card:nth-child(3) img{object-position:center bottom}
 @media(max-width:1000px){.fl-start{padding:64px 20px 75px}.fl-start__grid{gap:15px}.fl-start__card{min-height:470px}.fl-start__copy{padding-top:30px}.fl-start__card img{height:65%}}
 @media(max-width:749px){.fl-start{padding:55px 16px 65px}.fl-start__intro{margin-bottom:30px}.fl-start__intro h2{font-size:32px}.fl-start__intro h2 br{display:none}.fl-start__intro>p:last-child{font-size:15px}.fl-start__grid{grid-template-columns:1fr;gap:18px}.fl-start__card{min-height:455px}.fl-start__card h3{font-size:29px}.fl-start__card img{height:65%}}
 @media(prefers-reduced-motion:reduce){.fl-start__card,.fl-start__card img{transition:none}}
