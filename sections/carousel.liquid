@@ -29,6 +29,27 @@
   {% content_for 'block', type: '_carousel-content', id: 'static-carousel-content', closest.product: null %}
 </div>
 
+{% if section.settings.auto_scroll %}
+<script>
+  (() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const apply = () => {
+      const slider = document.querySelector('#shopify-section-{{ section.id }} slideshow-component');
+      if (!slider) return;
+      if (preference.matches) {
+        slider.removeAttribute('autoplay');
+        slider.pause?.();
+      } else {
+        slider.setAttribute('autoplay', '{{ section.settings.auto_scroll_interval }}');
+        slider.play?.();
+      }
+    };
+    customElements.whenDefined('slideshow-component').then(apply);
+    preference.addEventListener?.('change', apply);
+  })();
+</script>
+{% endif %}
+
 {% schema %}
 {
   "name": "t:names.carousel",
@@ -36,6 +57,8 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {"type":"checkbox","id":"auto_scroll","label":"Automatically advance slides","default":false},
+    {"type":"range","id":"auto_scroll_interval","label":"Seconds between slides","min":3,"max":10,"step":1,"unit":"s","default":5},
     {
       "type": "range",
       "id": "columns",
