@@ -2,21 +2,21 @@
   <div class="fl-start__inner">
     <div class="fl-start__intro">
       <p class="fl-start__eyebrow">YOUR CREATIVE STARTS HERE</p>
-      <h2 id="fl-start-heading-{{ section.id }}">New to Drawing with Flowlines?<br>This Is the Place to Start.</h2>
-      <p>Everything you need to bring your ideas to life on real paper.</p>
+      <h2 id="fl-start-heading-{{ section.id }}">Everything You Need to Create.</h2>
+      <p>Draw, color, and create on real paper.</p>
     </div>
     <div class="fl-start__grid">
       <a class="fl-start__card" href="/#how-it-works" aria-label="Learn about the Flowlines drawing projector">
-        <div class="fl-start__copy"><span class="fl-start__number">01 / HARDWARE</span><h3>Meet Your<br>Drawing Projector</h3><span class="fl-start__link">Explore the projector <span aria-hidden="true">↗</span></span></div>
-        <img src="{{ 'flowlines-projector-studio.png' | asset_url }}" width="1440" height="1080" alt="Flowlines drawing projector on a creative desk" loading="lazy">
+        <div class="fl-start__copy"><span class="fl-start__number">01 / HARDWARE</span><h3>Drawing Projector</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
+        <img src="{{ 'flowlines-projector-cutout.png' | file_img_url: '1000x' }}" width="1440" height="1080" alt="Flowlines silver drawing projector with adjustable stand" loading="lazy">
       </a>
       <a class="fl-start__card" href="/#how-it-works" aria-label="Explore the guided drawing app">
-        <div class="fl-start__copy"><span class="fl-start__number">02 / SOFTWARE</span><h3>Create with<br>Guided App</h3><span class="fl-start__link">Discover how it works <span aria-hidden="true">↗</span></span></div>
-        <img src="{{ 'flowlines-guided-drawing-app.png' | asset_url }}" width="1440" height="1080" alt="Flowlines guided drawing app alongside a hand-painted artwork" loading="lazy">
+        <div class="fl-start__copy"><span class="fl-start__number">02 / SOFTWARE</span><h3>Guided Drawing App</h3><span class="fl-start__link">Explore <span aria-hidden="true">↗</span></span></div>
+        <img src="{{ 'flowlines-guided-app-cutout.png' | file_img_url: '1000x' }}" width="1440" height="1080" alt="Flowlines guided drawing application shown on a tablet" loading="lazy">
       </a>
       <a class="fl-start__card" href="/#faq" aria-label="Learn which art materials can be used with Flowlines">
-        <div class="fl-start__copy"><span class="fl-start__number">03 / ART MATERIALS</span><h3>Choose Your<br>Favorite Art Materials</h3><span class="fl-start__link">Markers, pencils, paints &amp; more <span aria-hidden="true">↗</span></span></div>
-        {{ 'flowlines-creative-session.jpg' | file_img_url: '1000x' | img_tag: 'Markers, pencils, paints and brushes used for creating artwork with Flowlines', 'fl-start__materials-image' }}
+        <div class="fl-start__copy"><span class="fl-start__number">03 / ART MATERIALS</span><h3>Art Materials</h3><span class="fl-start__link">Markers · crayons · pencils <span aria-hidden="true">↗</span></span></div>
+        {{ 'flowlines-art-materials-cutout.png' | file_img_url: '1000x' | img_tag: 'Markers, pencils, paints and brushes used for creating artwork with Flowlines', 'fl-start__materials-image' }}
       </a>
     </div>
   </div>
@@ -29,17 +29,17 @@
 .fl-start__intro h2{font-size:clamp(31px,3vw,48px);font-weight:750;letter-spacing:-.045em;line-height:1.11;margin:0 0 18px}
 .fl-start__intro>p:last-child{color:#676767;font-size:17px;margin:0}
 .fl-start__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.fl-start__card{position:relative;display:block;overflow:hidden;min-height:555px;border-radius:18px;background:#f7f7f7;text-align:center;color:#111;text-decoration:none;isolation:isolate;transition:transform .25s,box-shadow .25s}
+.fl-start__card{position:relative;display:block;overflow:hidden;min-height:555px;border-radius:18px;background:#fff;border:1px solid #ededed;text-align:center;color:#111;text-decoration:none;isolation:isolate;transition:transform .25s,box-shadow .25s}
 .fl-start__card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(0,0,0,.08)}
 .fl-start__copy{position:relative;z-index:2;padding:45px 16px 0}
 .fl-start__number{font-size:11px;font-weight:700;letter-spacing:.16em;color:#8c8c8c}
 .fl-start__card h3{font-size:clamp(23px,2.05vw,32px);line-height:1.18;letter-spacing:-.035em;font-weight:750;margin:13px 0 15px}
 .fl-start__link{font-size:14px;font-weight:600;color:#d87550}
-.fl-start__card img{position:absolute;bottom:0;left:0;width:100%;height:60%;object-fit:cover;object-position:center bottom;transition:transform .45s}
+.fl-start__card img{position:absolute;bottom:0;left:4%;width:92%;height:68%;object-fit:contain;object-position:center bottom;transition:transform .45s}
 .fl-start__card:hover img{transform:scale(1.035)}
-.fl-start__card:nth-child(3) img{object-position:55% center}
-@media(max-width:1000px){.fl-start{padding:64px 20px 75px}.fl-start__grid{gap:15px}.fl-start__card{min-height:470px}.fl-start__copy{padding-top:30px}.fl-start__card img{height:59%}}
-@media(max-width:749px){.fl-start{padding:55px 16px 65px}.fl-start__intro{margin-bottom:30px}.fl-start__intro h2{font-size:32px}.fl-start__intro h2 br{display:none}.fl-start__intro>p:last-child{font-size:15px}.fl-start__grid{grid-template-columns:1fr;gap:18px}.fl-start__card{min-height:455px}.fl-start__card h3{font-size:29px}.fl-start__card img{height:59%}}
+.fl-start__card:nth-child(3) img{object-position:center bottom}
+@media(max-width:1000px){.fl-start{padding:64px 20px 75px}.fl-start__grid{gap:15px}.fl-start__card{min-height:470px}.fl-start__copy{padding-top:30px}.fl-start__card img{height:65%}}
+@media(max-width:749px){.fl-start{padding:55px 16px 65px}.fl-start__intro{margin-bottom:30px}.fl-start__intro h2{font-size:32px}.fl-start__intro h2 br{display:none}.fl-start__intro>p:last-child{font-size:15px}.fl-start__grid{grid-template-columns:1fr;gap:18px}.fl-start__card{min-height:455px}.fl-start__card h3{font-size:29px}.fl-start__card img{height:65%}}
 @media(prefers-reduced-motion:reduce){.fl-start__card,.fl-start__card img{transition:none}}
 </style>
 {% schema %}
