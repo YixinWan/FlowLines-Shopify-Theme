@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2><strong>Make room for imagination.</strong></h2>",
+            "text": "<h2><strong>Find your flow.<br>Paint your masterpiece.</strong></h2>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h3>Create real artwork on paper, guided by Flowlines.</h3>",
+            "text": "<h3>An intelligent drawing assistant that helps beginners create original artwork on paper.</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -92,7 +92,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/flowlines-projection-demo.jpg",
+        "image_1": "shopify://shop_images/acc045e3c339f28c0522ced7663d7442.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -109,7 +109,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 30,
         "section_width": "page-width",
-        "section_height": "large",
+        "section_height": "medium",
         "section_height_custom": 50,
         "background_color": "rgba(0,0,0,0)",
         "toggle_overlay": true,
@@ -181,8 +181,7 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
-      },
-      "disabled": true
+      }
     },
     "17835756186e6c848e": {
       "type": "_blocks",
@@ -305,8 +304,7 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
-      },
-      "disabled": true
+      }
     },
     "custom_liquid_wRetVk": {
       "type": "custom-liquid",
@@ -1800,7 +1798,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>Join the waitlist</h3>",
+            "text": "<h3>Join the Flowlines Waitlist</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -1947,6 +1945,7 @@
         "two",
         "three"
       ],
+      "disabled": true,
       "settings": {
         "aria_label": "What makes Flowlines special"
       }
@@ -1979,6 +1978,7 @@
         "first",
         "second"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Thoughtful tools for creativity",
         "heading": "Made for your creative moments."
@@ -1986,6 +1986,7 @@
     },
     "flow_spot": {
       "type": "flow-spotlight",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/flowlines-projection-demo.jpg",
         "image_alt": "Silver Flowlines projector shining toward artwork on paper",
@@ -1999,20 +2000,20 @@
   },
   "order": [
     "hero_jVaWmY",
-    "flow_proof",
-    "flow_duo",
-    "flow_spot",
-    "custom_liquid_wRetVk",
+    "178417386348c34cec",
     "1783063736df48c6b0",
     "custom_liquid_ncRHBb",
+    "17835756186e6c848e",
+    "custom_liquid_wRetVk",
     "carousel_74ccmQ",
     "custom_liquid_WYDfWe",
     "1783318153fbfd447b",
     "custom_liquid_pc83Dk",
     "17835894588d2ed373",
-    "178417386348c34cec",
-    "17835756186e6c848e",
     "17830645551c9338ce",
-    "1783060256d7c46b12"
+    "1783060256d7c46b12",
+    "flow_proof",
+    "flow_duo",
+    "flow_spot"
   ]
 }
