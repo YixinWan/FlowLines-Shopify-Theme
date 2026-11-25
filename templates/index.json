@@ -1511,10 +1511,8 @@
     "flow_video_showcase": {
       "type": "flow-video-showcase",
       "settings": {
-        "heading": "See Flowlines in Action",
-        "subheading": "From your first outline to a finished piece of art.",
-        "poster": "shopify://shop_images/flowlines-projection-demo.jpg",
-        "placeholder_text": "A closer look at Flowlines"
+        "video": "shopify://files/videos/flowlines-video-draft.mp4",
+        "poster": "shopify://shop_images/flowlines-projection-demo.jpg"
       }
     }
   },
