@@ -1,0 +1,21 @@
+<div class="fl-top-ribbon" role="region" aria-label="Flowlines brand announcement">
+  <div class="fl-top-ribbon__inner">
+    <span class="fl-top-ribbon__left" aria-hidden="true"><span class="fl-top-ribbon__spark"></span> FLOWLINES STUDIO</span>
+    <span class="fl-top-ribbon__message">Make room for your imagination.</span>
+    <a href="/#flowlines-starter-guide" class="fl-top-ribbon__link">Explore Flowlines <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+<style>
+.fl-top-ribbon{background:#202022;color:#f7f6f4;width:100%;font-family:inherit}
+.fl-top-ribbon__inner{max-width:1480px;margin:auto;min-height:42px;padding:0 32px;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:16px}
+.fl-top-ribbon__left{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.17em;color:#d2d2d3;white-space:nowrap}
+.fl-top-ribbon__spark{width:7px;height:7px;background:#d87550;border-radius:50%;box-shadow:0 0 0 4px rgba(216,117,80,.13)}
+.fl-top-ribbon__message{text-align:center;font-size:12px;letter-spacing:.035em;font-weight:550}
+.fl-top-ribbon__link{justify-self:end;color:#d9d9dc;text-decoration:none;font-size:11px;font-weight:600;white-space:nowrap}
+.fl-top-ribbon__link:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.fl-top-ribbon__link:focus-visible{outline:2px solid #e2a88f;outline-offset:4px}
+@media(max-width:749px){.fl-top-ribbon__inner{min-height:36px;padding:0 14px;display:flex;justify-content:center}.fl-top-ribbon__message{font-size:11px}.fl-top-ribbon__left,.fl-top-ribbon__link{display:none}}
+</style>
+{% schema %}
+{"name":"Flowlines top ribbon","settings":[],"presets":[{"name":"Flowlines top ribbon"}],"enabled_on":{"groups":["header"]}}
+{% endschema %}

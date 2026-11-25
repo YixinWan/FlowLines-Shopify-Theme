@@ -11,6 +11,10 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "flow_top_ribbon": {
+      "type": "flow-top-ribbon",
+      "settings": {}
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -96,6 +100,7 @@
     }
   },
   "order": [
+    "flow_top_ribbon",
     "header_section"
   ]
 }
