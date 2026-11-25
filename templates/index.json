@@ -176,12 +176,12 @@
             "arrow_color": "#8a8f98",
             "accent_color": "#f97316",
             "step_1_title": "Upload a photo or idea",
-            "step_1_text": "Choose from your photos or browse our curated collections.",
+            "step_1_text": "Start with a photo or idea.",
             "step_2_title": "Get guided painting steps",
-            "step_2_text": "Flowlines projects each step so you always know what to do.",
+            "step_2_text": "Follow simple drawing guidance.",
             "step_3_image": "shopify://shop_images/image.png",
             "step_3_title": "Paint it on real paper",
-            "step_3_text": "Paint with real brushes and paints and be proud of what you create."
+            "step_3_text": "Create something real, by hand."
           },
           "blocks": {}
         }

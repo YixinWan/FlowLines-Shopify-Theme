@@ -4012,3 +4012,7 @@ main > .shopify-section:first-child .section:not(.disable-section-top-offset) {
     margin-top: calc(var(--header-height) * var(--transparent-header-offset-boolean) * -1);
   }
 }
+
+/* Flowlines: gentle image and video focus on hover */
+@media(hover:hover) and (pointer:fine){main img:not(.icon):not(.logo){transition:transform .6s cubic-bezier(.2,.75,.2,1)}main img:not(.icon):not(.logo):hover{transform:scale(1.045)}main video{transition:transform .7s cubic-bezier(.2,.75,.2,1)}main video:hover{transform:scale(1.045)}.fl-film__stage .fl-film__art{transition:transform .7s cubic-bezier(.2,.75,.2,1)}.fl-film__stage:hover .fl-film__art{transform:scale(1.045)}}
+@media(prefers-reduced-motion:reduce){main img,main video,.fl-film__stage .fl-film__art{transition:none!important;transform:none!important}}

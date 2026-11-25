@@ -66,9 +66,9 @@
       {transform:`translate3d(${spec[1][0]}px,${spec[1][1]}px,0)`}
     ],{duration:spec[2],iterations:Infinity,direction:'alternate',easing:'ease-in-out'});
   });
-  let userPaused=false;
+  let userPaused=false; let hoverPaused=false;
   function sync(){
-    const paused=userPaused||reduced.matches||document.hidden;
+    const paused=userPaused||hoverPaused||reduced.matches||document.hidden;
     animations.forEach(a=>paused?a.pause():a.play());
     if(video){if(paused)video.pause();else video.play().catch(()=>{});}
     button.setAttribute('aria-pressed',String(paused));
@@ -76,7 +76,7 @@
     button.innerHTML=paused?'<span aria-hidden="true">▶</span>':'<span aria-hidden="true">Ⅱ</span>';
   }
   button.addEventListener('click',()=>{userPaused=!userPaused;sync()});
-  document.addEventListener('visibilitychange',sync);
+  root.addEventListener('mouseenter',()=>{hoverPaused=true;sync()}); root.addEventListener('mouseleave',()=>{hoverPaused=false;sync()}); document.addEventListener('visibilitychange',sync);
   if(reduced.addEventListener)reduced.addEventListener('change',sync);
   sync();
 })();
