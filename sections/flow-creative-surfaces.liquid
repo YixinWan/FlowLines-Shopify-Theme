@@ -1,0 +1,91 @@
+<section class="fl-surfaces" id="flow-creative-surfaces-{{ section.id }}" aria-labelledby="fl-surfaces-title-{{ section.id }}">
+  <div class="fl-surfaces__inner">
+    <div class="fl-surfaces__heading">
+      <div>
+        <p class="fl-surfaces__eyebrow">BEYOND THE PAGE</p>
+        <h2 id="fl-surfaces-title-{{ section.id }}">Your canvas. Your rules.</h2>
+        <p class="fl-surfaces__intro">From everyday essentials to one-of-a-kind objects, make it yours.</p>
+      </div>
+      <div class="fl-surfaces__arrows">
+        <button type="button" data-prev aria-label="Previous creative surface">←</button>
+        <button type="button" data-next aria-label="Next creative surface">→</button>
+      </div>
+    </div>
+    <div class="fl-surfaces__cards" role="group" aria-label="Choose a creative surface">
+      <button class="fl-surfaces__card is-selected" data-surface="0" type="button" aria-pressed="true">
+        <img src="{{ 'flowlines-canvas-tote-graphic.png' | file_img_url: '900x' }}" width="800" height="1000" alt="Illustrative canvas tote bag with bold blue and coral abstract painted graphics" loading="lazy">
+        <span class="fl-surfaces__card-bottom"><span><strong>Canvas Tote</strong><small>Carry your imagination</small></span><span class="fl-surfaces__plus" aria-hidden="true">↗</span></span>
+      </button>
+      <button class="fl-surfaces__card" data-surface="1" type="button" aria-pressed="false">
+        <img src="{{ 'flowlines-ceramic-plate-graphic.png' | file_img_url: '900x' }}" width="800" height="1000" alt="Illustrative modern phone case painted with abstract blue and orange graphic lines" loading="lazy">
+        <span class="fl-surfaces__card-bottom"><span><strong>Phone Case</strong><small>Everyday, reimagined</small></span><span class="fl-surfaces__plus" aria-hidden="true">↗</span></span>
+      </button>
+      <button class="fl-surfaces__card" data-surface="2" type="button" aria-pressed="false">
+        <img src="{{ 'flowlines-phone-case-graphic.png' | file_img_url: '900x' }}" width="800" height="1000" alt="Illustrative ceramic plate with contemporary cobalt arcs and orange graphic brushstroke" loading="lazy">
+        <span class="fl-surfaces__card-bottom"><span><strong>Ceramic Plate</strong><small>Make art part of life</small></span><span class="fl-surfaces__plus" aria-hidden="true">↗</span></span>
+      </button>
+    </div>
+    <div class="fl-surfaces__footer">
+      <p data-caption aria-live="polite"><strong>01 / Canvas Tote</strong> — A blank everyday essential becomes your personal statement.</p>
+      <span class="fl-surfaces__counter" data-counter>01 <span>/ 03</span></span>
+    </div>
+    <p class="fl-surfaces__note">Creative inspiration only. Choose paints and preparation suitable for each surface.</p>
+  </div>
+</section>
+<style>
+.fl-surfaces{background:#fff;color:#15191d;padding:92px 28px 100px}
+.fl-surfaces__inner{max-width:1470px;margin:0 auto}
+.fl-surfaces__heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:37px}
+.fl-surfaces__eyebrow{color:#d87550;font-size:11px;font-weight:750;letter-spacing:.18em;margin:0 0 13px}
+.fl-surfaces h2{font-size:clamp(34px,4.3vw,62px);line-height:1.06;letter-spacing:-.052em;font-weight:750;margin:0 0 16px}
+.fl-surfaces__intro{font-size:clamp(15px,1.5vw,18px);color:#687079;line-height:1.5;margin:0}
+.fl-surfaces__arrows{display:flex;gap:10px;margin-bottom:5px}
+.fl-surfaces__arrows button{width:46px;height:46px;border:1px solid #d8e0e5;border-radius:50%;background:#fff;color:#212d34;font-size:24px;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.fl-surfaces__arrows button:hover{background:#1c3343;color:white;transform:translateY(-2px)}
+.fl-surfaces__cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.fl-surfaces__card{position:relative;cursor:pointer;border:1px solid #e3e7e9;border-radius:20px;padding:0;overflow:hidden;aspect-ratio:4/4.8;background:#e9edf0;text-align:left;box-shadow:0 8px 18px rgba(31,51,65,.045);transition:transform .35s,border-color .35s,box-shadow .35s}
+.fl-surfaces__card img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1);filter:saturate(.93)}
+.fl-surfaces__card:after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(0deg,rgba(18,26,34,.66),transparent 76%);pointer-events:none}
+.fl-surfaces__card-bottom{position:absolute;left:25px;right:25px;bottom:23px;z-index:1;display:flex;align-items:end;justify-content:space-between;color:#fff;gap:14px}
+.fl-surfaces__card-bottom strong{display:block;font-size:clamp(20px,2.1vw,29px);font-weight:700;letter-spacing:-.035em;line-height:1.2}
+.fl-surfaces__card-bottom small{display:block;font-size:12px;font-weight:500;color:rgba(255,255,255,.82);margin-top:7px;letter-spacing:.02em}
+.fl-surfaces__plus{display:grid;place-items:center;width:39px;height:39px;flex:none;border-radius:50%;border:1px solid rgba(255,255,255,.68);font-size:22px;transition:background .2s}
+.fl-surfaces__card:hover,.fl-surfaces__card.is-selected{border-color:#9baab5;box-shadow:0 18px 40px rgba(31,51,65,.16);transform:translateY(-5px)}
+.fl-surfaces__card:hover img,.fl-surfaces__card.is-selected img{transform:scale(1.045)}
+.fl-surfaces__card.is-selected .fl-surfaces__plus{background:#d87550;border-color:#d87550}
+.fl-surfaces__card:focus-visible,.fl-surfaces__arrows button:focus-visible{outline:3px solid #d87550;outline-offset:4px}
+.fl-surfaces__footer{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #e8ecef;padding:24px 3px 17px}
+.fl-surfaces__footer p{font-size:14px;line-height:1.6;color:#656d75;margin:0}.fl-surfaces__footer strong{color:#1e2b34}
+.fl-surfaces__counter{white-space:nowrap;font-size:16px;color:#d87550;font-weight:750;font-variant-numeric:tabular-nums}.fl-surfaces__counter span{font-size:13px;color:#99a3ab;font-weight:500}
+.fl-surfaces__note{font-size:11px;color:#8f969a;margin:13px 3px 0}
+@media(max-width:749px){.fl-surfaces{padding:66px 16px 72px}.fl-surfaces__heading{align-items:end;gap:10px;margin-bottom:25px}.fl-surfaces h2{font-size:36px}.fl-surfaces__arrows button{width:38px;height:38px;font-size:21px}.fl-surfaces__intro{font-size:14px}.fl-surfaces__cards{grid-template-columns:1fr;gap:15px}.fl-surfaces__card{aspect-ratio:4/3.6}.fl-surfaces__card:not(.is-selected){display:none}.fl-surfaces__footer p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.fl-surfaces__card,.fl-surfaces__card img,.fl-surfaces__arrows button{transition:none}}
+</style>
+<script>
+(() => {
+ const root=document.getElementById('flow-creative-surfaces-{{ section.id }}');
+ if(!root||root.dataset.ready)return;
+ root.dataset.ready='true';
+ const cards=[...root.querySelectorAll('[data-surface]')];
+ const lines=[
+  '<strong>01 / Canvas Tote</strong> — A blank everyday essential becomes your personal statement.',
+  '<strong>02 / Phone Case</strong> — Express your style in the details you carry every day.',
+  '<strong>03 / Ceramic Plate</strong> — Transform simple objects into creative design pieces.'
+ ];
+ const caption=root.querySelector('[data-caption]');
+ const counter=root.querySelector('[data-counter]');
+ let current=0;
+ function select(i){
+   current=(i+cards.length)%cards.length;
+   cards.forEach((card,j)=>{const active=j===current;card.classList.toggle('is-selected',active);card.setAttribute('aria-pressed',String(active));});
+   caption.innerHTML=lines[current];
+   counter.innerHTML=String(current+1).padStart(2,'0')+' <span>/ 03</span>';
+ }
+ cards.forEach((c,i)=>c.addEventListener('click',()=>select(i)));
+ root.querySelector('[data-prev]').addEventListener('click',()=>select(current-1));
+ root.querySelector('[data-next]').addEventListener('click',()=>select(current+1));
+})();
+</script>
+{% schema %}
+{"name":"Creative surfaces","settings":[],"presets":[{"name":"Creative surfaces"}]}
+{% endschema %}

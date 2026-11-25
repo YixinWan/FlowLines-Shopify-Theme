@@ -1514,12 +1514,17 @@
         "display_mode": "animated_flow",
         "video": "shopify://files/videos/flowlines-video-draft.mp4"
       }
+    },
+    "flow_creative_surfaces": {
+      "type": "flow-creative-surfaces",
+      "settings": {}
     }
   },
   "order": [
     "flow_hero_slider",
     "flow_starter_cards",
     "flow_video_showcase",
+    "flow_creative_surfaces",
     "1783063736df48c6b0",
     "custom_liquid_ncRHBb",
     "17835756186e6c848e",
