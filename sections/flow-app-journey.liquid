@@ -1,0 +1,103 @@
+<section class="fl-app" id="flow-app-journey-{{ section.id }}" aria-labelledby="fl-app-heading-{{ section.id }}">
+ <div class="fl-app__inner">
+  <div class="fl-app__intro">
+    <div><p class="fl-app__eyebrow">DESIGNED TO CREATE TOGETHER</p><h2 id="fl-app-heading-{{ section.id }}">From your screen to your hands.</h2></div>
+    <p>Choose a reference, shape your idea in the Flowlines app, then follow each step as you make it real.</p>
+  </div>
+  <div class="fl-app__showcase">
+   <div class="fl-app__guide">
+    <div class="fl-app__phase"><span class="fl-app__phase-number">01</span><div><small>THE APP</small><strong>Make it yours</strong></div></div>
+    <div class="fl-app__steps" role="group" aria-label="Flowlines app walkthrough steps">
+      <button class="fl-app__step is-active" type="button" data-index="0" aria-pressed="true"><span>01</span><span><strong>Choose a design</strong><small>Start with a favorite image or idea.</small></span><span aria-hidden="true">↗</span></button>
+      <button class="fl-app__step" type="button" data-index="1" aria-pressed="false"><span>02</span><span><strong>Make it your own</strong><small>Adjust the artwork before drawing.</small></span><span aria-hidden="true">↗</span></button>
+      <button class="fl-app__step" type="button" data-index="2" aria-pressed="false"><span>03</span><span><strong>Explore the style</strong><small>Find the look you love.</small></span><span aria-hidden="true">↗</span></button>
+    </div>
+    <div class="fl-app__phase fl-app__phase--second"><span class="fl-app__phase-number">02</span><div><small>ON YOUR SURFACE</small><strong>Bring it to life</strong></div></div>
+    <div class="fl-app__steps" role="group" aria-label="Guided drawing walkthrough steps">
+      <button class="fl-app__step" type="button" data-index="3" aria-pressed="false"><span>04</span><span><strong>Set the canvas</strong><small>Prepare the drawing area.</small></span><span aria-hidden="true">↗</span></button>
+      <button class="fl-app__step" type="button" data-index="4" aria-pressed="false"><span>05</span><span><strong>Begin with the sketch</strong><small>Build your first lines.</small></span><span aria-hidden="true">↗</span></button>
+      <button class="fl-app__step" type="button" data-index="5" aria-pressed="false"><span>06</span><span><strong>Follow the steps</strong><small>Create at your own pace.</small></span><span aria-hidden="true">↗</span></button>
+      <button class="fl-app__step" type="button" data-index="6" aria-pressed="false"><span>07</span><span><strong>Bring in color</strong><small>Make every detail yours.</small></span><span aria-hidden="true">↗</span></button>
+    </div>
+   </div>
+   <div class="fl-app__visual">
+    <div class="fl-app__screen">
+      <span class="fl-app__screen-top"><i></i><span>FLOWLINES / APP GUIDE</span><span data-count>01 / 07</span></span>
+      <div class="fl-app__media">
+        <img data-app-preview src="{{ 'flowlines-app-1-choose.gif' | file_img_url: '750x' }}" alt="Animated walkthrough of choosing an illustration in the Flowlines app" width="750" height="640" loading="lazy">
+      </div>
+      <div class="fl-app__screen-bottom"><span data-stage>CHOOSE</span><span class="fl-app__live"><i></i> STEP PREVIEW</span></div>
+    </div>
+    <div class="fl-app__visual-caption"><strong data-title>Choose a design</strong><p data-description>Start with a favorite image or idea.</p><div><button type="button" data-prev aria-label="Previous app step">←</button><button type="button" data-next aria-label="Next app step">→</button></div></div>
+   </div>
+  </div>
+  <p class="fl-app__footnote">Illustrative app walkthrough. The display shows the creative workflow, not a promise of direct projection onto every material.</p>
+ </div>
+</section>
+<style>
+.fl-app{padding:96px 28px 102px;background:linear-gradient(180deg,#f7f9fa,#f0f4f6);color:#17232c}
+.fl-app__inner{max-width:1450px;margin:0 auto}
+.fl-app__intro{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:42px}
+.fl-app__eyebrow{font-size:11px;letter-spacing:.18em;font-weight:750;color:#d87550;margin:0 0 14px}
+.fl-app h2{font-size:clamp(36px,4.5vw,64px);letter-spacing:-.055em;font-weight:760;line-height:1.04;max-width:740px;margin:0}
+.fl-app__intro>p{max-width:350px;color:#63717b;font-size:16px;line-height:1.55;margin:0}
+.fl-app__showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:28px;align-items:stretch}
+.fl-app__guide{padding:34px 34px 32px;border-radius:24px;background:#fff;border:1px solid #e3e9ed;box-shadow:0 14px 40px rgba(22,46,62,.035)}
+.fl-app__phase{display:flex;align-items:center;gap:15px;margin:0 0 17px}
+.fl-app__phase-number{display:grid;place-items:center;width:43px;height:43px;background:#dce9ef;border-radius:13px;color:#1f4c66;font-size:16px;font-weight:750}
+.fl-app__phase small{display:block;font-size:10px;letter-spacing:.16em;color:#88949c;font-weight:700;margin-bottom:3px}
+.fl-app__phase strong{font-size:20px;font-weight:720;letter-spacing:-.03em}
+.fl-app__phase--second{margin-top:22px}
+.fl-app__steps{display:grid;gap:6px}
+.fl-app__step{width:100%;text-align:left;display:grid;grid-template-columns:24px 1fr 20px;align-items:center;gap:13px;border:1px solid transparent;background:transparent;border-radius:12px;padding:10px 14px;color:#27343e;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.fl-app__step>span:first-child{color:#9aa7af;font-size:12px;font-weight:730}
+.fl-app__step strong{display:block;font-size:15px;letter-spacing:-.015em;font-weight:690}
+.fl-app__step small{display:block;color:#7c8991;font-size:12px;margin-top:3px;line-height:1.4}
+.fl-app__step>span:last-child{font-size:18px;color:#a6b1b9}
+.fl-app__step:hover{background:#f3f7f9;transform:translateX(3px)}
+.fl-app__step.is-active{background:#eaf2f6;border-color:#d1e0e8}
+.fl-app__step.is-active>span:first-child,.fl-app__step.is-active>span:last-child{color:#d87550}
+.fl-app__step:focus-visible,.fl-app__visual-caption button:focus-visible{outline:3px solid #d87550;outline-offset:3px}
+.fl-app__visual{min-width:0;display:flex;flex-direction:column}
+.fl-app__screen{display:flex;flex:1;flex-direction:column;min-height:600px;border-radius:26px;background:linear-gradient(160deg,#20394b,#122839);overflow:hidden;color:#e9f0f4;box-shadow:0 20px 48px rgba(14,43,60,.16)}
+.fl-app__screen-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:22px 26px;color:#c4d1d9;font-size:10px;font-weight:750;letter-spacing:.13em}
+.fl-app__screen-top i{width:8px;height:8px;border-radius:50%;background:#d87550;box-shadow:0 0 0 5px rgba(216,117,80,.13)}
+.fl-app__media{display:grid;place-items:center;flex:1;min-height:0;margin:0 26px;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:radial-gradient(ellipse at 50% 42%,#e4eaf0,#b6c6d1 90%)}
+.fl-app__media img{width:100%;height:100%;max-height:500px;object-fit:contain;display:block}
+.fl-app__screen-bottom{display:flex;justify-content:space-between;padding:19px 26px 23px;font-size:10px;letter-spacing:.13em;font-weight:720;color:#bdcdd6}
+.fl-app__live{display:inline-flex;align-items:center;gap:7px}.fl-app__live i{width:6px;height:6px;border-radius:50%;background:#e1a98c}
+.fl-app__visual-caption{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:16px;padding:23px 3px 0}
+.fl-app__visual-caption strong{font-size:22px;letter-spacing:-.03em}
+.fl-app__visual-caption p{grid-column:1;margin:4px 0 0;color:#6a7982;font-size:14px}
+.fl-app__visual-caption>div{grid-column:2;grid-row:1/3;display:flex;gap:9px}
+.fl-app__visual-caption button{border:1px solid #cbd6dd;border-radius:50%;background:#fff;color:#193345;cursor:pointer;width:43px;height:43px;font-size:23px}
+.fl-app__visual-caption button:hover{background:#193345;color:#fff}
+.fl-app__footnote{color:#909da5;font-size:11px;margin:22px 0 0}
+@media(max-width:900px){.fl-app{padding:72px 20px}.fl-app__intro{display:block}.fl-app__intro>p{margin-top:16px}.fl-app__showcase{grid-template-columns:1fr}.fl-app__guide{padding:25px}.fl-app__screen{min-height:480px}}
+@media(max-width:600px){.fl-app{padding:62px 16px}.fl-app h2{font-size:38px}.fl-app__guide{padding:18px}.fl-app__screen{min-height:460px}.fl-app__screen-top{padding:18px 16px}.fl-app__media{margin:0 15px}.fl-app__screen-bottom{padding:15px 17px}.fl-app__step{padding:10px}.fl-app__visual-caption strong{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.fl-app__step{transition:none}}
+</style>
+<script>
+(() => {
+const root=document.getElementById('flow-app-journey-{{ section.id }}');
+if(!root||root.dataset.ready)return;root.dataset.ready='true';
+const files=['flowlines-app-1-choose.gif','flowlines-app-2-edit.gif','flowlines-app-3-style.gif','flowlines-app-draw-1-adjust-the-canvas.gif','flowlines-app-draw-2-start-with-the-sketch.gif','flowlines-app-draw-3-step-by-step.gif','flowlines-app-draw-4-color-match.gif'];
+const urls=[
+{% for file in (1..7) %}{% case file %}{% when 1 %}"{{ 'flowlines-app-1-choose.gif' | file_img_url: '750x' }}"{% when 2 %},"{{ 'flowlines-app-2-edit.gif' | file_img_url: '750x' }}"{% when 3 %},"{{ 'flowlines-app-3-style.gif' | file_img_url: '750x' }}"{% when 4 %},"{{ 'flowlines-app-draw-1-adjust-the-canvas.gif' | file_img_url: '750x' }}"{% when 5 %},"{{ 'flowlines-app-draw-2-start-with-the-sketch.gif' | file_img_url: '750x' }}"{% when 6 %},"{{ 'flowlines-app-draw-3-step-by-step.gif' | file_img_url: '750x' }}"{% when 7 %},"{{ 'flowlines-app-draw-4-color-match.gif' | file_img_url: '750x' }}"{% endcase %}{% endfor %}
+];
+const names=['Choose a design','Make it your own','Explore the style','Set the canvas','Begin with the sketch','Follow the steps','Bring in color'];
+const descriptions=['Start with a favorite image or idea.','Adjust the artwork before drawing.','Find the look you love.','Prepare the drawing area.','Build your first lines.','Create at your own pace.','Make every detail yours.'];
+const stages=['CHOOSE','EDIT','STYLE','CANVAS','SKETCH','GUIDE','COLOR'];
+const buttons=[...root.querySelectorAll('[data-index]')];
+const image=root.querySelector('[data-app-preview]');
+let active=0;
+function show(i){active=(i+7)%7;buttons.forEach((b,j)=>{let on=j===active;b.classList.toggle('is-active',on);b.setAttribute('aria-pressed',String(on));});
+image.src=urls[active];image.alt='Animated Flowlines app walkthrough: '+names[active];root.querySelector('[data-title]').textContent=names[active];root.querySelector('[data-description]').textContent=descriptions[active];root.querySelector('[data-count]').textContent=String(active+1).padStart(2,'0')+' / 07';root.querySelector('[data-stage]').textContent=stages[active];}
+buttons.forEach((b,i)=>b.addEventListener('click',()=>show(i)));
+root.querySelector('[data-prev]').addEventListener('click',()=>show(active-1));
+root.querySelector('[data-next]').addEventListener('click',()=>show(active+1));
+})();
+</script>
+{% schema %}
+{"name":"Flowlines app journey","settings":[],"presets":[{"name":"Flowlines app journey"}]}
+{% endschema %}
