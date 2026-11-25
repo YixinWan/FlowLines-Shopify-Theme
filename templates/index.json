@@ -9,6 +9,75 @@
  */
 {
   "sections": {
+    "flow_hero_slider": {
+      "type": "flow-hero-slideshow",
+      "settings": {
+        "image_1": "shopify://shop_images/flowlines-projection-demo.jpg",
+        "title_1": "Find your flow.\nPaint your masterpiece.",
+        "text_1": "An intelligent drawing assistant that helps beginners create original artwork on paper.",
+        "image_2": "shopify://shop_images/flowlines-creative-session.jpg",
+        "title_2": "Your ideas.\nBeautifully brought to life.",
+        "text_2": "Turn inspiration into artwork, one creative step at a time.",
+        "image_3": "shopify://shop_images/flowlines-product-studio.jpg",
+        "title_3": "From first sketch\nto final color.",
+        "text_3": "Enjoy the process of making something truly your own."
+      }
+    },
+    "flow_starter_cards": {
+      "type": "flow-start-cards",
+      "settings": {}
+    },
+    "flow_video_showcase": {
+      "type": "flow-video-showcase",
+      "settings": {
+        "display_mode": "animated_flow",
+        "video": "shopify://files/videos/flowlines-video-draft.mp4"
+      }
+    },
+    "1783063736df48c6b0": {
+      "type": "_blocks",
+      "custom_css": [],
+      "name": "How it works",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_ncRHBb": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"testers\"></div>",
+        "background_color": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "17835756186e6c848e": {
       "type": "_blocks",
       "blocks": {
@@ -143,93 +212,9 @@
         "padding-block-end": 19
       }
     },
-    "1783063736df48c6b0": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_9c0864d_yBtkUY": {
-          "type": "ai_gen_block_9c0864d",
-          "settings": {
-            "heading": "How Flowlines Works",
-            "max_width": 1400,
-            "padding_top": 70,
-            "padding_bottom": 70,
-            "background_color": "{{ settings.color_palette.background }}",
-            "heading_size": 40,
-            "heading_color": "#0b2341",
-            "heading_spacing": 20,
-            "steps_top_spacing": 40,
-            "step_gap": 30,
-            "mobile_step_gap": 40,
-            "illustration_size": 180,
-            "illustration_spacing": 20,
-            "number_size": 50,
-            "number_font_size": 24,
-            "number_bg_color": "#d97757",
-            "number_text_color": "#ffffff",
-            "number_spacing": 16,
-            "title_size": 20,
-            "title_color": "#0b2341",
-            "title_spacing": 12,
-            "text_size": 15,
-            "text_color": "#2f3a4a",
-            "arrow_size": 36,
-            "arrow_color": "#8a8f98",
-            "accent_color": "#f97316",
-            "step_1_title": "Upload a photo or idea",
-            "step_1_text": "Choose from your photos or browse our curated collections.",
-            "step_2_title": "Get guided painting steps",
-            "step_2_text": "Flowlines projects each step so you always know what to do.",
-            "step_3_image": "shopify://shop_images/image.png",
-            "step_3_title": "Paint it on real paper",
-            "step_3_text": "Paint with real brushes and paints and be proud of what you create."
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_9c0864d_yBtkUY"
-      ],
-      "custom_css": [],
-      "name": "How it works",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
-    "custom_liquid_ncRHBb": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "<div id=\"testers\"></div>",
-        "background_color": "",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
+    "flow_community": {
+      "type": "flow-community-wall",
+      "settings": {}
     },
     "carousel_74ccmQ": {
       "type": "carousel",
@@ -1010,6 +995,8 @@
       },
       "name": "t:names.carousel",
       "settings": {
+        "auto_scroll": true,
+        "continuous_speed": 50,
         "columns": 3,
         "mobile_columns": "1",
         "section_width": "full-width",
@@ -1018,9 +1005,7 @@
         "icons_style": "chevron",
         "icons_shape": "circle",
         "padding-block-start": 36,
-        "padding-block-end": 64,
-        "auto_scroll": true,
-        "continuous_speed": 50
+        "padding-block-end": 64
       }
     },
     "custom_liquid_WYDfWe": {
@@ -1113,6 +1098,141 @@
         "border_radius": 0,
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "custom_liquid_pc83Dk": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"waitlist\"></div>",
+        "background_color": "",
+        "section_width": "page-width",
+        "padding-block-start": 50,
+        "padding-block-end": 0
+      }
+    },
+    "17835894588d2ed373": {
+      "type": "_blocks",
+      "blocks": {
+        "text_x4dGVx": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>Join the Flowlines Waitlist</h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "{{ settings.color_palette.foreground }}",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_YfiqcD": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h5>Be the first to try Flowlines — a new way for beginners to create real paintings on paper, step by step.</h5>",
+            "width": "fit-content",
+            "max_width": "none",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": true,
+            "background_color": "#ffe3cce3",
+            "corner_radius": 7,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_5d4b4f6_AArGbp": {
+          "type": "ai_gen_block_5d4b4f6",
+          "settings": {
+            "benefit_1": "News about the Flowlines launch",
+            "benefit_2": "Behind-the-scenes product updates",
+            "benefit_3": "Invitations to future creative activities",
+            "icon_color": "#d97757",
+            "text_color": "#3f4654",
+            "text_size": 16,
+            "icon_size": 20,
+            "row_spacing": 16,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        },
+        "forms_inline_KHYbiY": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "1063914",
+            "text_color": "#202020",
+            "button_background_color": "#d97757",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "text_x4dGVx",
+        "text_YfiqcD",
+        "ai_gen_block_5d4b4f6_AArGbp",
+        "forms_inline_KHYbiY"
+      ],
+      "name": "waitlist",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 22,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "#ffffff",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 31,
+        "padding-block-end": 32
       }
     },
     "17830645551c9338ce": {
@@ -1269,141 +1389,6 @@
         "padding-block-end": 0
       }
     },
-    "custom_liquid_pc83Dk": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "<div id=\"waitlist\"></div>",
-        "background_color": "",
-        "section_width": "page-width",
-        "padding-block-start": 50,
-        "padding-block-end": 0
-      }
-    },
-    "17835894588d2ed373": {
-      "type": "_blocks",
-      "blocks": {
-        "text_x4dGVx": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<h3>Join the Flowlines Waitlist</h3>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "{{ settings.color_palette.foreground }}",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "text_YfiqcD": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<h5>Be the first to try Flowlines — a new way for beginners to create real paintings on paper, step by step.</h5>",
-            "width": "fit-content",
-            "max_width": "none",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "",
-            "background": true,
-            "background_color": "#ffe3cce3",
-            "corner_radius": 7,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ai_gen_block_5d4b4f6_AArGbp": {
-          "type": "ai_gen_block_5d4b4f6",
-          "settings": {
-            "benefit_1": "News about the Flowlines launch",
-            "benefit_2": "Behind-the-scenes product updates",
-            "benefit_3": "Invitations to future creative activities",
-            "icon_color": "#d97757",
-            "text_color": "#3f4654",
-            "text_size": 16,
-            "icon_size": 20,
-            "row_spacing": 16,
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
-        },
-        "forms_inline_KHYbiY": {
-          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
-          "settings": {
-            "form_id": "1063914",
-            "text_color": "#202020",
-            "button_background_color": "#d97757",
-            "button_label_color": "#ffffff",
-            "links_color": "#1878b9",
-            "errors_color": "#e02229",
-            "text_alignment": "center",
-            "form_alignment": "center",
-            "padding_top": 0,
-            "padding_bottom": 24,
-            "padding_right": 0,
-            "padding_left": 0
-          }
-        }
-      },
-      "block_order": [
-        "text_x4dGVx",
-        "text_YfiqcD",
-        "ai_gen_block_5d4b4f6_AArGbp",
-        "forms_inline_KHYbiY"
-      ],
-      "name": "waitlist",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 22,
-        "section_width": "full-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#ffffff",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 31,
-        "padding-block-end": 32
-      }
-    },
     "flow_proof": {
       "type": "flow-proof-strip",
       "blocks": {
@@ -1485,46 +1470,12 @@
         "button": "Get early updates",
         "link": "/#waitlist"
       }
-    },
-    "flow_community": {
-      "type": "flow-community-wall",
-      "settings": {}
-    },
-    "flow_hero_slider": {
-      "type": "flow-hero-slideshow",
-      "settings": {
-        "image_1": "shopify://shop_images/flowlines-projection-demo.jpg",
-        "title_1": "Find your flow.\nPaint your masterpiece.",
-        "text_1": "An intelligent drawing assistant that helps beginners create original artwork on paper.",
-        "image_2": "shopify://shop_images/flowlines-creative-session.jpg",
-        "title_2": "Your ideas.\nBeautifully brought to life.",
-        "text_2": "Turn inspiration into artwork, one creative step at a time.",
-        "image_3": "shopify://shop_images/flowlines-product-studio.jpg",
-        "title_3": "From first sketch\nto final color.",
-        "text_3": "Enjoy the process of making something truly your own."
-      }
-    },
-    "flow_starter_cards": {
-      "type": "flow-start-cards",
-      "settings": {}
-    },
-    "flow_video_showcase": {
-      "type": "flow-video-showcase",
-      "settings": {
-        "display_mode": "animated_flow",
-        "video": "shopify://files/videos/flowlines-video-draft.mp4"
-      }
-    },
-    "flow_creative_surfaces": {
-      "type": "flow-creative-surfaces",
-      "settings": {}
     }
   },
   "order": [
     "flow_hero_slider",
     "flow_starter_cards",
     "flow_video_showcase",
-    "flow_creative_surfaces",
     "1783063736df48c6b0",
     "custom_liquid_ncRHBb",
     "17835756186e6c848e",
