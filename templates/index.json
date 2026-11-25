@@ -1511,8 +1511,8 @@
     "flow_video_showcase": {
       "type": "flow-video-showcase",
       "settings": {
-        "video": "shopify://files/videos/flowlines-video-draft.mp4",
-        "poster": "shopify://shop_images/flowlines-projection-demo.jpg"
+        "display_mode": "animated_flow",
+        "video": "shopify://files/videos/flowlines-video-draft.mp4"
       }
     }
   },
