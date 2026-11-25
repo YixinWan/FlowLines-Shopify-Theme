@@ -1,0 +1,55 @@
+<section class="fl-reels" id="flow-reels-{{ section.id }}" aria-label="Flowlines creative motion gallery">
+  <div class="fl-reels__heading"><p>IN MOTION</p><h2>Creativity in every frame.</h2></div>
+  <div class="fl-reels__viewport">
+    <div class="fl-reels__track">
+      <article class="fl-reels__slide" data-reel="0">
+        <div class="fl-reels__scene fl-reels__scene--video"><video muted loop playsinline preload="metadata" poster="{{ 'flowlines-projector-studio.png' | asset_url }}"><source src="https://cdn.shopify.com/videos/c/o/v/a5a3decb2239497c99821416d35cd661.mp4" type="video/mp4"></video></div>
+        <span class="fl-reels__tag">01 / The creative flow</span>
+      </article>
+      <article class="fl-reels__slide" data-reel="1">
+        <div class="fl-reels__scene fl-reels__scene--paper"><img src="{{ 'flowlines-artwork-colorful-friends.png' | file_url }}" alt="Colorful artwork creative study" loading="lazy" width="900" height="900"><span class="fl-reels__stroke" aria-hidden="true"></span></div>
+        <span class="fl-reels__tag">02 / Find your style</span>
+      </article>
+      <article class="fl-reels__slide" data-reel="2">
+        <div class="fl-reels__scene fl-reels__scene--projector"><img src="{{ 'flowlines-projector-studio.png' | asset_url }}" alt="Flowlines projector in a studio motion study" loading="lazy" width="900" height="900"><span class="fl-reels__halo" aria-hidden="true"></span></div>
+        <span class="fl-reels__tag">03 / Make it real</span>
+      </article>
+      <article class="fl-reels__slide" data-reel="3">
+        <div class="fl-reels__scene fl-reels__scene--gallery"><img src="{{ 'flowlines-artwork-yellow-flowers.png' | file_url }}" alt="Flower painting creative study" loading="lazy" width="900" height="900"><span class="fl-reels__spark" aria-hidden="true">✦</span></div>
+        <span class="fl-reels__tag">04 / Made by you</span>
+      </article>
+    </div>
+    <div class="fl-reels__actions"><button type="button" data-prev aria-label="Previous video">‹</button><button type="button" data-next aria-label="Next video">›</button></div>
+  </div>
+  <div class="fl-reels__dots" aria-label="Choose a video"><button type="button" data-dot="0" aria-label="Show video 1"></button><button type="button" data-dot="1" aria-label="Show video 2"></button><button type="button" data-dot="2" aria-label="Show video 3"></button><button type="button" data-dot="3" aria-label="Show video 4"></button></div>
+</section>
+<style>
+.fl-reels{background:#fff;padding:92px 0 96px;overflow:hidden;color:#142332}
+.fl-reels__heading{text-align:center;margin-bottom:34px;padding:0 20px}.fl-reels__heading p{font-size:11px;letter-spacing:.2em;color:#d87550;font-weight:800;margin:0 0 12px}.fl-reels__heading h2{font-size:clamp(32px,4vw,55px);line-height:1.1;letter-spacing:-.05em;margin:0}
+.fl-reels__viewport{position:relative;width:100%}.fl-reels__track{display:flex;align-items:center;gap:22px;transition:transform .75s cubic-bezier(.22,.75,.25,1);will-change:transform}
+.fl-reels__slide{position:relative;flex:0 0 min(73vw,1040px);aspect-ratio:16/8.3;overflow:hidden;border-radius:26px;background:#e9eef1;opacity:.52;transform:scale(.92);transition:transform .65s,opacity .65s,box-shadow .65s;isolation:isolate}.fl-reels__slide.is-active{opacity:1;transform:scale(1);box-shadow:0 22px 60px rgba(21,44,57,.16)}
+.fl-reels__scene{width:100%;height:100%;position:relative;overflow:hidden;display:grid;place-items:center}.fl-reels__scene img,.fl-reels__scene video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.75,.2,1)}.fl-reels__slide:hover .fl-reels__scene img,.fl-reels__slide:hover .fl-reels__scene video{transform:scale(1.055)}
+.fl-reels__scene--paper{background:linear-gradient(135deg,#f6f1ec,#e7ded5)}.fl-reels__scene--paper img{width:58%;height:86%;object-fit:contain;filter:drop-shadow(0 18px 18px rgba(46,40,35,.15));animation:fl-reels-float 7s ease-in-out infinite alternate}.fl-reels__stroke{position:absolute;width:150px;height:150px;border:20px solid rgba(220,111,75,.22);border-radius:50%;right:11%;top:18%;animation:fl-reels-orbit 8s ease-in-out infinite alternate}
+.fl-reels__scene--projector{background:#172d3c}.fl-reels__scene--projector img{object-fit:contain;width:80%;height:90%;position:relative;z-index:2;animation:fl-reels-float 8s ease-in-out infinite alternate}.fl-reels__halo{position:absolute;width:54%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#78a9bd55,transparent 70%);animation:fl-reels-pulse 6s ease-in-out infinite alternate}
+.fl-reels__scene--gallery{background:linear-gradient(130deg,#e5ece8,#fbf4e8)}.fl-reels__scene--gallery img{width:60%;height:84%;object-fit:contain;filter:drop-shadow(0 16px 18px #26372c20);animation:fl-reels-float 7s ease-in-out infinite alternate}.fl-reels__spark{position:absolute;right:17%;top:20%;font-size:80px;color:#dc8569;animation:fl-reels-pulse 4s ease-in-out infinite alternate}
+.fl-reels__tag{position:absolute;left:28px;bottom:24px;z-index:3;border-radius:30px;background:rgba(255,255,255,.91);backdrop-filter:blur(10px);padding:11px 20px;font-size:14px;font-weight:700;color:#223543}
+.fl-reels__actions{position:absolute;z-index:5;top:50%;left:calc(50% - min(36.5vw,520px) + 24px);right:calc(50% - min(36.5vw,520px) + 24px);transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none}.fl-reels__actions button{pointer-events:auto;display:grid;place-items:center;width:50px;height:50px;border:0;border-radius:50%;background:#fffffff2;color:#233747;font-size:34px;cursor:pointer;box-shadow:0 8px 24px #132c4040;transition:transform .2s}.fl-reels__actions button:hover{transform:scale(1.1)}
+.fl-reels__dots{display:flex;gap:9px;justify-content:center;margin-top:28px}.fl-reels__dots button{border:0;width:9px;height:9px;background:#cbd5da;border-radius:20px;cursor:pointer;padding:0;transition:width .3s,background .3s}.fl-reels__dots button.is-active{width:36px;background:#d87550}
+.fl-reels__slide.is-active:not(:hover) .fl-reels__scene--paper img,.fl-reels__slide.is-active:not(:hover) .fl-reels__scene--projector img,.fl-reels__slide.is-active:not(:hover) .fl-reels__scene--gallery img{animation-play-state:running}.fl-reels__viewport:hover .fl-reels__slide img,.fl-reels__viewport:hover .fl-reels__stroke,.fl-reels__viewport:hover .fl-reels__halo,.fl-reels__viewport:hover .fl-reels__spark{animation-play-state:paused}
+@keyframes fl-reels-float{from{translate:0 8px}to{translate:0 -11px}}@keyframes fl-reels-pulse{from{opacity:.4;transform:scale(.8)}to{opacity:1;transform:scale(1.12)}}@keyframes fl-reels-orbit{from{transform:rotate(-20deg) scale(.85)}to{transform:rotate(25deg) scale(1.2)}}
+@media(max-width:749px){.fl-reels{padding:65px 0}.fl-reels__track{gap:12px}.fl-reels__slide{flex-basis:86vw;aspect-ratio:4/3;border-radius:18px}.fl-reels__actions{left:calc(7vw + 10px);right:calc(7vw + 10px)}.fl-reels__actions button{width:40px;height:40px;font-size:27px}.fl-reels__tag{font-size:11px;left:14px;bottom:14px;padding:8px 12px}}
+@media(prefers-reduced-motion:reduce){.fl-reels__track,.fl-reels__slide,.fl-reels__scene *{animation:none!important;transition:none!important}}
+</style>
+<script>
+(()=>{const root=document.getElementById('flow-reels-{{ section.id }}');if(!root||root.dataset.ready)return;root.dataset.ready='1';
+const slides=Array.from(root.querySelectorAll('[data-reel]'));const track=root.querySelector('.fl-reels__track');const dots=Array.from(root.querySelectorAll('[data-dot]'));const viewport=root.querySelector('.fl-reels__viewport');const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');let active=0;let timer;let hovering=false;
+function render(){const slide=slides[active];const x=slide.offsetLeft-(viewport.clientWidth-slide.offsetWidth)/2;track.style.transform='translate3d('+(-x)+'px,0,0)';slides.forEach((s,i)=>{s.classList.toggle('is-active',i===active);s.setAttribute('aria-hidden',String(i!==active));const v=s.querySelector('video');if(v){if(i===active&&!hovering&&!reduce.matches)v.play().catch(()=>{});else v.pause()}});dots.forEach((d,i)=>{d.classList.toggle('is-active',i===active);d.setAttribute('aria-current',i===active?'true':'false')})}
+function start(){clearInterval(timer);if(!hovering&&!reduce.matches)timer=setInterval(()=>{active=(active+1)%slides.length;render()},8500)}
+function goto(i){active=(i+slides.length)%slides.length;render();start()}
+root.querySelector('[data-prev]').addEventListener('click',()=>goto(active-1));root.querySelector('[data-next]').addEventListener('click',()=>goto(active+1));dots.forEach((d,i)=>d.addEventListener('click',()=>goto(i)));
+viewport.addEventListener('mouseenter',()=>{hovering=true;clearInterval(timer);slides.forEach(s=>{const v=s.querySelector('video');if(v)v.pause()})});viewport.addEventListener('mouseleave',()=>{hovering=false;render();start()});window.addEventListener('resize',render);document.addEventListener('visibilitychange',()=>{if(document.hidden){clearInterval(timer);slides.forEach(s=>s.querySelector('video')?.pause())}else{render();start()}});render();start();
+})();
+</script>
+{% schema %}
+{"name":"Flowlines motion reels","settings":[],"presets":[{"name":"Flowlines motion reels"}]}
+{% endschema %}

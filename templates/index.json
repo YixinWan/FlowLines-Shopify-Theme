@@ -1486,6 +1486,10 @@
         "link": "/#waitlist"
       }
     },
+    "flow_motion_reels": {
+      "type": "flow-motion-reels",
+      "settings": {}
+    },
     "flow_community": {
       "type": "flow-community-wall",
       "settings": {}
@@ -1535,6 +1539,7 @@
     "17835756186e6c848e",
     "custom_liquid_wRetVk",
     "flow_community",
+    "flow_motion_reels",
     "carousel_74ccmQ",
     "custom_liquid_WYDfWe",
     "1783318153fbfd447b",
