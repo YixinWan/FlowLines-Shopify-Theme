@@ -54,10 +54,10 @@
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   const layers=Array.from(root.querySelectorAll('[data-fl-motion]'));
   const animationSpecs=[
-    [[-26,-14],[24,11],12600],
-    [[22,12],[-20,-16],10700],
-    [[-16,16],[19,-10],14800],
-    [[19,-12],[-24,15],11800]
+    [[-26,-14],[24,11],9000],
+    [[22,12],[-20,-16],7600],
+    [[-16,16],[19,-10],10500],
+    [[19,-12],[-24,15],8400]
   ];
   const animations=layers.map((el,i)=>{
     const spec=animationSpecs[i];
