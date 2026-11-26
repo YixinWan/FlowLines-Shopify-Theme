@@ -1,0 +1,32 @@
+<section class="fl-footer" aria-label="Flowlines brand footer">
+  <div class="fl-footer__inner">
+    <div class="fl-footer__brand">
+      <a class="fl-footer__logo" href="{{ routes.root_url }}" aria-label="Flowlines homepage">
+        {% if settings.logo != blank %}<img src="{{ settings.logo | image_url: width: 1200 }}" alt="Flowlines" width="740" height="190" loading="lazy">{% else %}<span>flowlines</span>{% endif %}
+      </a>
+      <p>Ideas take shape here.<br>Made by you, on real paper.</p>
+      {% form 'customer', id: 'FlowlinesFooterNewsletter' %}
+        <input type="hidden" name="contact[tags]" value="newsletter,flowlines-footer">
+        <div class="fl-footer__email"><label class="visually-hidden" for="FlowlinesFooterEmail">Email address</label><input id="FlowlinesFooterEmail" type="email" name="contact[email]" placeholder="Enter your email" autocomplete="email" required value="{{ form.email | escape }}"><button type="submit">Subscribe <span aria-hidden="true">↗</span></button></div>
+        {% if form.posted_successfully? %}<p class="fl-footer__status" role="status">Thanks for joining Flowlines!</p>{% elsif form.errors %}<div class="fl-footer__status" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+      {% endform %}
+    </div>
+    <div class="fl-footer__links">
+      <div><h3>DISCOVER</h3><a href="/#product">Projector</a><a href="/#how-it-works">How It Works</a><a href="/#artworks">Artworks</a><a href="/#flowlines-community">Community</a></div>
+      <div><h3>FLOWLINES</h3><a href="/#waitlist">Early Access</a><a href="/#flowlines-community">Our Community</a><a href="/#how-it-works">Learn</a></div>
+      <div><h3>SUPPORT</h3><a href="/#faq">FAQ</a><a href="{{ routes.root_url }}pages/contact">Contact</a>{% if shop.privacy_policy != blank %}<a href="{{ shop.privacy_policy.url }}">Privacy Policy</a>{% endif %}{% if shop.refund_policy != blank %}<a href="{{ shop.refund_policy.url }}">Refund Policy</a>{% endif %}{% if shop.shipping_policy != blank %}<a href="{{ shop.shipping_policy.url }}">Shipping Policy</a>{% endif %}</div>
+    </div>
+  </div>
+</section>
+<style>
+.fl-footer{background:#7b7167;color:#fff;padding:78px 48px 62px}.fl-footer__inner{max-width:1510px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:6vw;align-items:start}
+.fl-footer__logo{display:inline-block;width:min(100%,670px)}.fl-footer__logo img{display:block;width:100%;height:auto;max-height:175px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}.fl-footer__logo span{font-size:clamp(68px,9vw,150px);font-weight:800;letter-spacing:-.07em;line-height:.9}
+.fl-footer__brand>p{font-size:17px;line-height:1.5;max-width:520px;margin:27px 0 29px;color:#f6f1eb}
+.fl-footer__email{display:flex;width:min(100%,540px);height:59px;border:1px solid #f6f1eb;border-radius:40px;padding:5px;gap:8px}.fl-footer__email input{flex:1;min-width:0;background:transparent;color:#fff;border:0;padding:0 16px;font-size:15px;outline-offset:3px}.fl-footer__email input::placeholder{color:#f5efe9}.fl-footer__email button{min-width:158px;border:0;border-radius:30px;background:#f5eaa2;color:#25231f;font-size:15px;font-weight:750;cursor:pointer;transition:background .2s,transform .2s}.fl-footer__email button:hover{background:#fff5ba;transform:scale(1.015)}.fl-footer__status{font-size:13px;margin:11px 0;color:#fff}
+.fl-footer__links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding-top:24px}.fl-footer__links h3{color:#fff;font-size:14px;font-weight:750;letter-spacing:.045em;margin:0 0 27px}.fl-footer__links a{display:block;width:fit-content;color:#f5f1ed;font-size:14px;line-height:1.55;text-decoration:none;margin:0 0 12px;transition:opacity .2s}.fl-footer__links a:hover{opacity:.65;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:950px){.fl-footer{padding:62px 24px}.fl-footer__inner{grid-template-columns:1fr;gap:36px}.fl-footer__links{padding:0}.fl-footer__logo{max-width:500px}}
+@media(max-width:560px){.fl-footer{padding:50px 20px}.fl-footer__brand>p{font-size:15px}.fl-footer__links{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 12px}.fl-footer__email button{min-width:118px;font-size:13px}.fl-footer__email input{padding:0 9px;font-size:13px}.fl-footer__links h3{margin-bottom:18px}}
+</style>
+{% schema %}
+{"name":"Flowlines brand footer","settings":[],"presets":[{"name":"Flowlines brand footer"}]}
+{% endschema %}
