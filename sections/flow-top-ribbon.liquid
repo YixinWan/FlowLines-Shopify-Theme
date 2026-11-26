@@ -14,7 +14,13 @@
 .fl-top-ribbon__link{justify-self:end;color:#f5eee7;text-decoration:none;font-size:11px;font-weight:600;white-space:nowrap}
 .fl-top-ribbon__link:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .fl-top-ribbon__link:focus-visible{outline:2px solid #e2a88f;outline-offset:4px}
-@media(max-width:749px){.fl-top-ribbon__inner{min-height:36px;padding:0 14px;display:flex;justify-content:center}.fl-top-ribbon__message{font-size:11px}.fl-top-ribbon__left,.fl-top-ribbon__link{display:none}}
+#header-group > .shopify-section:has(.fl-top-ribbon){position:sticky;top:0;z-index:100}
+#header-group > .header-section:has(> #header-component[sticky="always"]){top:41px;z-index:99}
+#header-component[transparent][data-sticky-state="active"] .header__underlay-closed{height:100%;background:#fff}
+#header-component[transparent][data-sticky-state="active"] .header__row{--color-foreground:#17232c;--color-foreground-rgb:23,35,44;--color-border:#17232c;--color-border-rgb:23,35,44;--color-account-icon:#17232c}
+#header-component[transparent][data-sticky-state="active"]{--header-logo-display:block;--header-logo-inverse-display:none}
+#header-component[transparent][data-sticky-state="active"] .flow-header-nav a{color:#17232c}
+@media(max-width:749px){.fl-top-ribbon__inner{min-height:36px;padding:0 14px;display:flex;justify-content:center}.fl-top-ribbon__message{font-size:11px}.fl-top-ribbon__left,.fl-top-ribbon__link{display:none}#header-group > .header-section:has(> #header-component[sticky="always"]){top:35px}}
 </style>
 {% schema %}
 {"name":"Flowlines top ribbon","settings":[],"presets":[{"name":"Flowlines top ribbon"}],"enabled_on":{"groups":["header"]}}
