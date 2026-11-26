@@ -3,9 +3,9 @@
     <div>
       <span class="fl-community__eyebrow">THE FLOWLINES COMMUNITY</span>
       <h2 id="fl-community-title-{{ section.id }}">Made for the joy of creating.</h2>
-      <p>Little moments. Big creative possibilities.</p>
+      <p>Little thoughts on the joy of making things by hand.</p>
     </div>
-    <span class="fl-community__sample">Illustrative reviews · Not actual customer feedback</span>
+    <span class="fl-community__sample">Illustrative sentiments · Not actual customer testimonials</span>
   </div>
   {% assign art_names = 'flowlines-artwork-yellow-flowers.png|flowlines-artwork-thanksgiving.png|flowlines-artwork-colorful-friends.png|flowlines-artwork-red-apple.png|flowlines-artwork-lakeside-village.png|flowlines-artwork-blue-rabbit.png' | split: '|' %}
   {% assign lines = 'I love the feeling of making something with my own hands!|This makes painting feel so much less intimidating.|The colors and little details make me smile.|I could spend hours getting lost in creating.|Such a lovely way to unwind after a long day.|Seeing an idea come to life on paper feels magical.|I never thought getting started could feel this fun.|I would love to share this creative moment with friends.' | split: '|' %}
@@ -22,8 +22,8 @@
                   {% assign phrase_index = position | modulo: 8 %}
                   {% assign image_name = art_names[photo_index] %}
                   {% assign phrase = lines[phrase_index] %}
-                  {% assign is_image = position | modulo: 3 %}
-                  {% if is_image != 1 %}
+                  {% assign is_image = position | modulo: 4 %}
+                  {% if is_image == 0 %}
                     <div class="fl-community__card fl-community__card--image">
                       <img src="{{ image_name | file_url }}" alt="Flowlines creative artwork preview" loading="lazy" width="440" height="440">
                     </div>
