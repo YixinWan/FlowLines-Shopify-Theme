@@ -5,20 +5,20 @@
     {% else %}
       <svg class="fl-film__art" viewBox="0 0 1440 810" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
         <defs>
-          <linearGradient id="fl-bg-{{ section.id }}" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#122638"/><stop offset=".55" stop-color="#1b3447"/><stop offset="1" stop-color="#274052"/></linearGradient>
-          <linearGradient id="fl-pink-{{ section.id }}" x1="0" x2="1"><stop stop-color="#f7a895"/><stop offset="1" stop-color="#df7f78"/></linearGradient>
-          <linearGradient id="fl-gold-{{ section.id }}" x1="0" x2="1"><stop stop-color="#e9bf81"/><stop offset="1" stop-color="#f4d399"/></linearGradient>
-          <linearGradient id="fl-blue-{{ section.id }}" x1="0" x2="1"><stop stop-color="#65a9c4"/><stop offset="1" stop-color="#b6d9d6"/></linearGradient>
+          <linearGradient id="fl-bg-{{ section.id }}" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e8edf0"/><stop offset=".55" stop-color="#f4f5f4"/><stop offset="1" stop-color="#dde5e7"/></linearGradient>
+          <linearGradient id="fl-pink-{{ section.id }}" x1="0" x2="1"><stop stop-color="#d97972"/><stop offset="1" stop-color="#bd6f69"/></linearGradient>
+          <linearGradient id="fl-gold-{{ section.id }}" x1="0" x2="1"><stop stop-color="#bb8e56"/><stop offset="1" stop-color="#d3ab70"/></linearGradient>
+          <linearGradient id="fl-blue-{{ section.id }}" x1="0" x2="1"><stop stop-color="#427f99"/><stop offset="1" stop-color="#74a5ae"/></linearGradient>
         </defs>
         <rect width="1440" height="810" fill="url(#fl-bg-{{ section.id }})"/>
-        <circle cx="1150" cy="160" r="390" fill="#abc8c7" opacity=".055"/>
-        <circle cx="180" cy="720" r="350" fill="#f0b5aa" opacity=".06"/>
+        <circle cx="1150" cy="160" r="390" fill="#abc8c7" opacity=".24"/>
+        <circle cx="180" cy="720" r="350" fill="#f0b5aa" opacity=".12"/>
         <g data-fl-motion="1" fill="none" stroke-linecap="round">
-          <path d="M-180 570 C 140 40, 370 102, 605 390 S 1080 710, 1640 160" stroke="url(#fl-blue-{{ section.id }})" stroke-width="92" opacity=".14"/>
-          <path d="M-150 600 C 200 160, 355 120, 650 430 S 1150 690, 1610 150" stroke="url(#fl-blue-{{ section.id }})" stroke-width="2.5" opacity=".83"/>
+          <path d="M-180 570 C 140 40, 370 102, 605 390 S 1080 710, 1640 160" stroke="url(#fl-blue-{{ section.id }})" stroke-width="92" opacity=".24"/>
+          <path d="M-150 600 C 200 160, 355 120, 650 430 S 1150 690, 1610 150" stroke="url(#fl-blue-{{ section.id }})" stroke-width="2.5" opacity=".96"/>
         </g>
         <g data-fl-motion="2" fill="none" stroke-linecap="round">
-          <path d="M-180 720 C 170 420, 365 220, 650 420 S 1130 580, 1610 290" stroke="url(#fl-pink-{{ section.id }})" stroke-width="64" opacity=".20"/>
+          <path d="M-180 720 C 170 420, 365 220, 650 420 S 1130 580, 1610 290" stroke="url(#fl-pink-{{ section.id }})" stroke-width="64" opacity=".24"/>
           <path d="M-180 720 C 170 420, 365 220, 650 420 S 1130 580, 1610 290" stroke="url(#fl-pink-{{ section.id }})" stroke-width="3" opacity=".92"/>
         </g>
         <g data-fl-motion="3" fill="none" stroke-linecap="round">
@@ -26,8 +26,8 @@
           <path d="M-180 220 C 220 670, 410 710, 685 380 S 1160 110, 1590 610" stroke="url(#fl-gold-{{ section.id }})" stroke-width="3" opacity=".92"/>
         </g>
         <g data-fl-motion="4" fill="none" stroke-linecap="round">
-          <path d="M-150 370 C 300 120, 485 690, 815 410 S 1170 160, 1630 560" stroke="#d6e5db" stroke-width="2" opacity=".45"/>
-          <path d="M-150 410 C 300 160, 485 730, 815 450 S 1170 200, 1630 600" stroke="#d6e5db" stroke-width="1.5" opacity=".27"/>
+          <path d="M-150 370 C 300 120, 485 690, 815 410 S 1170 160, 1630 560" stroke="#8298a0" stroke-width="2" opacity=".68"/>
+          <path d="M-150 410 C 300 160, 485 730, 815 450 S 1170 200, 1630 600" stroke="#8298a0" stroke-width="1.5" opacity=".5"/>
         </g>
       </svg>
     {% endif %}
@@ -35,8 +35,8 @@
   </div>
 </section>
 <style>
-#flowlines-film-{{ section.id }}{padding:0;margin:0;background:#1b3447}
-#flowlines-film-{{ section.id }} .fl-film__stage{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#1b3447}
+#flowlines-film-{{ section.id }}{padding:0;margin:0;background:#f4f5f4}
+#flowlines-film-{{ section.id }} .fl-film__stage{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#f4f5f4}
 #flowlines-film-{{ section.id }} .fl-film__video,#flowlines-film-{{ section.id }} .fl-film__art{display:block;width:100%;height:100%;object-fit:cover}
 #flowlines-film-{{ section.id }} .fl-film__toggle{position:absolute;right:24px;bottom:24px;z-index:2;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);background:rgba(21,37,50,.4);color:#fff;backdrop-filter:blur(9px);width:44px;height:44px;border-radius:50%;cursor:pointer;transition:background .2s,transform .2s}
 #flowlines-film-{{ section.id }} .fl-film__toggle:hover{background:rgba(21,37,50,.7)}
