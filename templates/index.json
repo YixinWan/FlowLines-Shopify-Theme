@@ -1097,10 +1097,10 @@
     "flow_creation_pains": {
       "type": "flow-creation-pains",
       "settings": {
-        "image_1": "shopify://shop_images/flowlines-creative-session.jpg",
-        "image_2": "shopify://shop_images/flowlines-product-studio.jpg",
-        "image_3": "shopify://shop_images/flowlines-projection-demo.jpg",
-        "image_4": "shopify://shop_images/flowlines-portable-studio.jpg"
+        "image_1": "shopify://shop_images/flowlines-pain-blank-page-2026.png",
+        "image_2": "shopify://shop_images/flowlines-pain-proportions-2026.png",
+        "image_3": "shopify://shop_images/flowlines-pain-colors-2026.png",
+        "image_4": "shopify://shop_images/flowlines-pain-next-step-2026.png"
       }
     },
     "flow_creative_outcome": {
