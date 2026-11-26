@@ -4016,3 +4016,14 @@ main > .shopify-section:first-child .section:not(.disable-section-top-offset) {
 /* Flowlines: gentle image and video focus on hover */
 @media(hover:hover) and (pointer:fine){main img:not(.icon):not(.logo){transition:transform .6s cubic-bezier(.2,.75,.2,1)}main img:not(.icon):not(.logo):hover{transform:scale(1.045)}main video{transition:transform .7s cubic-bezier(.2,.75,.2,1)}main video:hover{transform:scale(1.045)}.fl-film__stage .fl-film__art{transition:transform .7s cubic-bezier(.2,.75,.2,1)}.fl-film__stage:hover .fl-film__art{transform:scale(1.045)}}
 @media(prefers-reduced-motion:reduce){main img,main video,.fl-film__stage .fl-film__art{transition:none!important;transform:none!important}}
+/* Flowlines floating homepage header */
+body:has(#header-component[transparent]) #header-component[transparent] .header__underlay-closed{transition:height .35s ease,background .35s ease}
+body:has(#header-component[transparent]) #header-component[transparent]:is(:hover,:focus-within) .header__underlay-closed{height:100%;background:#fff}
+body:has(#header-component[transparent]) #header-component[transparent]:is(:hover,:focus-within) .header__row{--color-foreground:#17232c;--color-foreground-rgb:23,35,44;--color-border:#17232c;--color-border-rgb:23,35,44;--color-account-icon:#17232c}
+body:has(#header-component[transparent]) #header-component[transparent]:is(:hover,:focus-within){--header-logo-display:block;--header-logo-inverse-display:none}
+body:has(#header-component[transparent]) #header-component[transparent] .header-logo__image-container--inverse img{filter:brightness(0) invert(1)}
+body:has(#header-component[transparent]) #header-component[transparent] .flow-header-nav a{transition:color .3s ease,opacity .2s ease}
+
+/* Explicit navigation contrast for the floating hero header */
+body:has(#header-component[transparent]) #header-component[transparent]:not(:hover):not(:focus-within):not([data-sticky-state=active]) .flow-header-nav a{color:#fff}
+body:has(#header-component[transparent]) #header-component[transparent]:is(:hover,:focus-within) .flow-header-nav a{color:#17232c}
