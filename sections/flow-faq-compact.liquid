@@ -1,0 +1,34 @@
+<section class="fl-faq" id="faq" aria-labelledby="fl-faq-heading-{{ section.id }}">
+  <div class="fl-faq__inner">
+    <p class="fl-faq__eyebrow">GOOD TO KNOW</p>
+    <h2 id="fl-faq-heading-{{ section.id }}">Frequently Asked Questions</h2>
+    <p class="fl-faq__lead">A few things you may be wondering about Flowlines.</p>
+    <div class="fl-faq__list">
+      <details><summary>Do I need drawing experience?<span aria-hidden="true">+</span></summary><p>No. Flowlines is designed to help beginners get started with guided steps while leaving the creative choices in your hands.</p></details>
+      <details><summary>Does Flowlines work on real paper?<span aria-hidden="true">+</span></summary><p>Yes. The goal is to help you create physical artwork by hand, using guided imagery as a reference.</p></details>
+      <details><summary>What art materials can I use?<span aria-hidden="true">+</span></summary><p>You can explore drawing and coloring with materials such as markers, colored pencils and crayons. Guidance for different materials will be shared as development progresses.</p></details>
+      <details><summary>Is this an AI image generator?<span aria-hidden="true">+</span></summary><p>Flowlines focuses on guiding the hands-on drawing process. The finished artwork is made by you, on your chosen surface.</p></details>
+      <details><summary>When will Flowlines be available?<span aria-hidden="true">+</span></summary><p>We're still developing Flowlines. Join the email list to hear about product updates and launch timing when they're ready to share.</p></details>
+      <details><summary>Can I join as an early tester?<span aria-hidden="true">+</span></summary><p>Subscribe to receive updates about future testing opportunities and early-access announcements.</p></details>
+    </div>
+  </div>
+</section>
+<style>
+.fl-faq{background:#f7f8f9;padding:95px 26px 105px;color:#17232c}
+.fl-faq__inner{max-width:1100px;margin:auto}
+.fl-faq__eyebrow{text-align:center;font-size:12px;font-weight:750;letter-spacing:.18em;color:#bf7d62;margin:0 0 15px}
+.fl-faq h2{text-align:center;font-size:clamp(32px,4vw,54px);letter-spacing:-.045em;line-height:1.1;margin:0 0 13px}
+.fl-faq__lead{text-align:center;font-size:16px;color:#72777b;margin:0 0 42px}
+.fl-faq__list{border-top:1px solid #dce1e4}
+.fl-faq details{border-bottom:1px solid #dce1e4}
+.fl-faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;font-size:clamp(16px,1.4vw,19px);font-weight:650;padding:24px 4px;line-height:1.4}
+.fl-faq summary::-webkit-details-marker{display:none}
+.fl-faq summary span{font-size:27px;line-height:1;color:#8f8c89;font-weight:350;transition:transform .25s}
+.fl-faq details[open] summary span{transform:rotate(45deg);color:#bb745b}
+.fl-faq details>p{max-width:830px;color:#677079;line-height:1.65;font-size:15px;margin:-4px 0 26px;padding-right:24px}
+.fl-faq summary:focus-visible{outline:2px solid #b77e69;outline-offset:4px}
+@media(max-width:749px){.fl-faq{padding:70px 20px 76px}.fl-faq__lead{margin-bottom:28px}.fl-faq summary{padding:19px 0}.fl-faq details>p{font-size:14px}}
+</style>
+{% schema %}
+{"name":"Flowlines FAQ","settings":[],"presets":[{"name":"Flowlines FAQ"}]}
+{% endschema %}
