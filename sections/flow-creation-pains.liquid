@@ -26,7 +26,7 @@
         </article>
       {% endfor %}
     </div>
-    <div class="fl-pains__outro">It doesn't have to be this hard. <span>That's where Flowlines begins.</span></div>
+    <div class="fl-pains__outro">The hardest part is starting. <span>Flowlines helps you take the first step.</span><a href="{{ routes.root_url }}#flowlines-starter-guide">Discover your creative toolkit ↘</a></div>
   </div>
 </section>
 <style>
@@ -53,6 +53,8 @@
 @media(max-width:990px){#flowlines-creation-pains .fl-pains__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 18px}}
 @media(max-width:600px){#flowlines-creation-pains{padding:70px 20px 76px}#flowlines-creation-pains .fl-pains__intro{margin-bottom:38px}#flowlines-creation-pains .fl-pains__grid{gap:26px 12px}#flowlines-creation-pains .fl-pains__media{border-radius:12px;aspect-ratio:4/5}#flowlines-creation-pains h3{font-size:16px;margin:13px 0 6px}#flowlines-creation-pains .fl-pains__card>p{font-size:12px}#flowlines-creation-pains .fl-pains__number{left:12px;bottom:11px}#flowlines-creation-pains .fl-pains__outro{margin-top:50px}}
 @media(prefers-reduced-motion:reduce){#flowlines-creation-pains img{transition:none!important}}
+#flowlines-creation-pains .fl-pains__outro a{display:block;width:fit-content;margin:23px auto 0;font-size:14px;font-weight:700;letter-spacing:0;text-decoration:none;color:#333f47;border-bottom:1px solid #8e9ba0;padding-bottom:7px;transition:color .2s,transform .2s}
+#flowlines-creation-pains .fl-pains__outro a:hover{color:#bd785f;transform:translateY(2px)}
 </style>
 {% schema %}
 {"name":"Creative pain points","settings":[{"type":"image_picker","id":"image_1","label":"Card 1 image"},{"type":"image_picker","id":"image_2","label":"Card 2 image"},{"type":"image_picker","id":"image_3","label":"Card 3 image"},{"type":"image_picker","id":"image_4","label":"Card 4 image"}],"presets":[{"name":"Creative pain points"}]}
